@@ -6,7 +6,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
   { path: 'finances', component: FinanceComponent },
-  { path: 'investments', component: PortfolioComponent },
+  { path: 'portfolio', component: PortfolioComponent },
   { path: 'about', component: AboutComponent },
 ];
 

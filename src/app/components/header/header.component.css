@@ -1,18 +1,24 @@
-.header {
+.navbar {
     display: flex;
+    background-color:blueviolet;
+    padding-left: 15px;
 }
 
-.header a{
+img {
+    border-radius: 15px;
+}
+
+.nav-item {
+    padding-left: 25px;
+}
+
+.nav-item a{
     display: flex;
     align-items: center;
     text-decoration: none;
-}
-
-.header .title-group {
-    padding-left: 25px;
     color: aliceblue;
 }
 
-.header .title-group .mat-icon{
+i {
     padding-right: 5px;
 }
