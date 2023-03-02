@@ -1,9 +1,21 @@
-<header>
-    <nav>
-        <ul>
-            <li><a routerLink="/finances">Finanças</a></li>
-            <li><a routerLink="/investments">Investimentos</a></li>
-            <li><a routerLink="/about">Sobre</a></li>
-        </ul>
-    </nav>
-</header>
+<p>
+    <mat-toolbar color="primary" class="header">
+        <mat-toolbar-row>
+            <a routerLink="/">
+                <img src="assets/img/logo.jpg" width="50">
+            </a>
+            <a class="title-group" routerLink="/finances">
+                <mat-icon>payments</mat-icon>
+                Finanças
+            </a>
+            <a class="title-group" routerLink="/investments">
+                <mat-icon>account_balance_wallet</mat-icon>
+                Investimentos
+            </a>
+            <a class="title-group" routerLink="/about">
+                <mat-icon>info</mat-icon>
+                Sobre
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
