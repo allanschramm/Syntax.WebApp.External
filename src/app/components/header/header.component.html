@@ -1,36 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="/">
-        <img src="assets/img/logo.jpg" width="50">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">
-                    <i class="material-icons">home</i>
-                    Início</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/finances">
-                    <i class="material-icons">payments</i>
-                    Finanças
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/portfolio">
-                    <i class="material-icons">account_balance_wallet</i>
-                    Investimentos
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/about">
-                    <i class="material-icons">info</i>
-                    Sobre
-                </a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">
+            <img src="assets/img/logo.jpg" width="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">
+                        <i class="material-icons">home</i>
+                        Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/finances">
+                        <i class="material-icons">payments</i>
+                        Finanças
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/portfolio">
+                        <i class="material-icons">account_balance_wallet</i>
+                        Investimentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text" routerLink="/about">
+                        <i class="material-icons">info</i>
+                        Sobre
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">
+                        <i class="material-icons">workspace_premium</i>
+                        Premium
+                    </a>
+                  </li>          
+            </ul>
+        </div>
     </div>
 </nav>

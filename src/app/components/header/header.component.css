@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     background-color:blueviolet;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 img {
@@ -9,16 +9,16 @@ img {
 }
 
 .nav-item {
-    padding-left: 25px;
+    padding-left: 20px;
 }
 
 .nav-item a{
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: aliceblue;
+    font-size: large;
 }
 
 i {
-    padding-right: 5px;
+    padding-right: 10px;
 }
+
