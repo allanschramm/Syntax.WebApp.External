@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http'
+
 // MÓDULOS DO PROJETO
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
