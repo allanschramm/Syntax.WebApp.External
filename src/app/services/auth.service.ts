@@ -1,26 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private http: HttpClient) { }
 
-  async login(email: string, password: string): Promise<void> {
+  login(email: string, password: string): Observable<void> {
     const data = {
       Email: email,
       Password: password
     };
-    await this.http.post('/api/Account/Login', data).toPromise();
+    return this.http.post<void>('/api/Account/Login', data);
   }
 
-  async loginWithGoogle(): Promise<void> {
-    await this.http.get('/api/Account/LoginWithGoogle').toPromise();
+  loginWithGoogle(): Observable<void> {
+    return this.http.get<void>('/api/Account/LoginWithGoogle');
   }
 
-  async loginWithLinkedIn(): Promise<void> {
-    await this.http.get('/api/Account/LoginWithLinkedIn').toPromise();
+  loginWithLinkedIn(): Observable<void> {
+    return this.http.get<void>('/api/Account/LoginWithLinkedIn');
   }
 }
+

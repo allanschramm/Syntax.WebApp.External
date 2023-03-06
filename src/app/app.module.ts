@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 // MÓDULOS DO MATERIAL
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -29,6 +31,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     // MATERIAL IMPORTS
     MatToolbarModule,
