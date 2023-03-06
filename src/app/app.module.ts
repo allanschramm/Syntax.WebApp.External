@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// MÓDULOS DO MATERIAL
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatListModule } from '@angular/material/list'
+import { MatIconModule } from '@angular/material/icon'
+
 // MÓDULOS DO PROJETO
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +15,6 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { AboutComponent } from './components/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,17 @@ import { HomeComponent } from './components/home/home.component';
     FinanceComponent,
     PortfolioComponent,
     AboutComponent,
-    FooterComponent,
-    HomeComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
+    // MATERIAL IMPORTS
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
