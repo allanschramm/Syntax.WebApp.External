@@ -18,15 +18,15 @@ export class ApiService {
     return this.http.get<AssetClass[]>(`${this.baseUrl}/AssetClass`);
   }
 
-  criarAssetClass(AssetClass: AssetClass): Observable<AssetClass> {
+  postAssetClass(AssetClass: AssetClass): Observable<AssetClass> {
     return this.http.post<AssetClass>(`${this.baseUrl}/AssetClass`, AssetClass);
   }
 
-  atualizarAssetClass(AssetClass: AssetClass): Observable<void> {
+  putAssetClass(AssetClass: AssetClass): Observable<void> {
     return this.http.put<void>(`${this.baseUrl}/AssetClass/${AssetClass.id}`, AssetClass);
   }
 
-  deletarAssetClass(id: number): Observable<void> {
+  deleteAssetClass(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/AssetClass/${id}`);
   }
 
