@@ -1,6 +1,5 @@
 .navbar {
     display: flex;
-    background-color:blueviolet;
     padding-left: 10px;
 }
 
@@ -16,6 +15,7 @@ img {
     display: flex;
     align-items: center;
     font-size: large;
+    font-weight: bold;
 }
 
 i {
