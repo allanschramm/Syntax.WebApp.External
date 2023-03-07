@@ -6,7 +6,7 @@ import { AssetClass } from '../models/asset-class';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class SyntaxiService {
   private baseUrl = 'http://localhost:5069/api';
 
   constructor(private http: HttpClient) { }
