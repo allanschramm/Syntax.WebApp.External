@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AssetClass } from '../models/asset-class';
 import { AssetPortfolio } from '../models/asset-portfolio';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyntaxService {
-  private baseUrl = 'http://localhost:5069/api';
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
