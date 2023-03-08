@@ -11,6 +11,7 @@ import { PortfolioTransactionComponent } from './components/portfolio/portfolio-
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'finances', component: FinanceComponent },
