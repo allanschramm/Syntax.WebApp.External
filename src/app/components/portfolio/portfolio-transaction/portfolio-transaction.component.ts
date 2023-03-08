@@ -14,7 +14,7 @@ export class PortfolioTransactionComponent {
   constructor(private router: Router, private syntaxService: SyntaxService) { }
 
   newTransaction() {
-    this.router.navigate(['/portfolio/novo']);
+    this.router.navigate(['/portfolio/new']);
   }
 
 
