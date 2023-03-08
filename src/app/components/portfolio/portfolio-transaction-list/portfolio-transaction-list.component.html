@@ -1,0 +1,26 @@
+<h1>Lista de Ativos</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ativo</th>
+      <th>Quantity</th>
+      <th>Preço da Ordem</th>
+      <th>Tipo de Operação</th>
+      <th>Date</th>
+      <th>Carteira</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assetPortfolioList$ | async">
+      <td>{{ asset.id }}</td>
+      <td>{{ asset.idAsset }}</td>
+      <td>{{ asset.quantity }}</td>
+      <td>{{ asset.purchasePrice }}</td>
+      <td>{{ asset.type }}</td>
+      <td>{{ asset.date | date }}</td>
+      <td>{{ asset.idPortfolio }}</td>
+    </tr>
+  </tbody>
+</table>
