@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 // MÓDULOS DO MATERIALS
 
@@ -19,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PortfolioSidebarComponent } from './components/portfolio/portfolio-sidebar/portfolio-sidebar.component';
 import { PortfolioDashboardComponent } from './components/portfolio/portfolio-dashboard/portfolio-dashboard.component';
 import { PortfolioTransactionComponent } from './components/portfolio/portfolio-transaction/portfolio-transaction.component';
+import { PortfolioTransactionListComponent } from './components/portfolio/portfolio-transaction-list/portfolio-transaction-list.component';
+import { PortfolioTransactionNewComponent } from './components/portfolio/portfolio-transaction-new/portfolio-transaction-new.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,16 @@ import { PortfolioTransactionComponent } from './components/portfolio/portfolio-
     HomeComponent,
     PortfolioSidebarComponent,
     PortfolioDashboardComponent,
-    PortfolioTransactionComponent
+    PortfolioTransactionComponent,
+    PortfolioTransactionListComponent,
+    PortfolioTransactionNewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
