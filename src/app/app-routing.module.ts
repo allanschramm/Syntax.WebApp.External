@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: PortfolioDashboardComponent },
       { path: 'transaction', component: PortfolioTransactionComponent },
-      { path: 'novo', component: PortfolioTransactionNewComponent},
+      { path: 'new', component: PortfolioTransactionNewComponent},
     ],
   },
   { path: 'about', component: AboutComponent },
