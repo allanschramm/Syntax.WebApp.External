@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AssetPortfolio } from 'src/app/models/asset-portfolio';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
@@ -13,7 +14,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
   
   assetPortfolioForm: FormGroup;
   
-  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService) {
+  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private router: Router) {
     this.assetPortfolioForm = this.formBuilder.group({
       quantity: ['', Validators.required],
       purchasePrice: ['', Validators.required],
@@ -32,9 +33,13 @@ export class PortfolioTransactionNewComponent implements OnInit {
     const assetPortfolio = this.assetPortfolioForm.value as AssetPortfolio;
     this.syntaxService.postAssetPortfolio(assetPortfolio)
     .subscribe(
-    result => console.log('Asset portfolio saved successfully'),
-    error => console.error('Failed to save asset portfolio', error)
-    );
+      () => {
+        this.router.navigate(['/portfolio/transaction']);
+      })
+  }
+
+  voltar() : void {
+    this.router.navigate(['/portfolio/transaction']);
   }
 
 }
