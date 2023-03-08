@@ -29,7 +29,7 @@ export class LoginComponent {
       .subscribe(result => {
         if (result) {
           console.log('Logged in successfully!');
-          this.router.navigate(['/home']);
+          this.router.navigate(['/portfolio']);
         } else {
           console.error('Login failed');
         }
@@ -65,7 +65,7 @@ export class LoginComponent {
       .subscribe(result => {
         if (result) {
           console.log('Logged in with LinkedIn!');
-          this.router.navigate(['/home']);
+          this.router.navigate(['/portifolio']);
         } else {
           console.error('LinkedIn login failed');
         }

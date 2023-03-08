@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from 'src/environment/environment'
 
 @Injectable({
@@ -10,12 +11,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   apiUrl = environment.apiUrl;
 
-  login(email: string, password: string): Observable<void> {
+  login(email: string, password: string): Observable<any> {
     const data = {
       Email: email,
       Password: password
     };
-    return this.http.post<void>(`${this.apiUrl}/User/login`, data);
+    return this.http.post<any>(`${this.apiUrl}/User/login`, data).pipe(
+      tap(response => localStorage.setItem('SyntaxToken', response.token))
+    );
   }
 
   loginWithGoogle(): Observable<void> {
@@ -26,4 +29,3 @@ export class AuthService {
     return this.http.get<void>('/api/Account/LoginWithLinkedIn');
   }
 }
-
