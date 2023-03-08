@@ -29,7 +29,6 @@
               "@angular/material/prebuilt-themes/purple-green.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/swiper.css",
-              "src/assets/css/styles.css",
               "src/styles.css"
             ],
             "scripts": [
