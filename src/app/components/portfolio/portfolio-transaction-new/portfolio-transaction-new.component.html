@@ -1,27 +1,28 @@
 <form [formGroup]="assetPortfolioForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="idAsset">Ativo:</label>
+      <input type="number" class="form-control" id="idAsset" formControlName="idAsset">
+    </div>
     <div class="form-group mb-3">
-      <label for="quantity">Quantity:</label>
+      <label for="quantity">Quantidade:</label>
       <input type="number" class="form-control" id="quantity" formControlName="quantity">
     </div>
     <div class="form-group">
-      <label for="purchasePrice">Purchase Price:</label>
+      <label for="purchasePrice">Preço da Ordem:</label>
       <input type="number" class="form-control" id="purchasePrice" formControlName="purchasePrice">
     </div>
     <div class="form-group">
-      <label for="date">Date:</label>
-      <input type="date" class="form-control" id="date" formControlName="date">
-    </div>
-    <div class="form-group">
-      <label for="type">Type:</label>
+      <label for="type">Tipo de Operação:</label>
       <input type="text" class="form-control" id="type" formControlName="type">
     </div>
     <div class="form-group">
-      <label for="idPortfolio">Portfolio ID:</label>
-      <input type="number" class="form-control" id="idPortfolio" formControlName="idPortfolio">
+      <label for="date">Data:</label>
+      <input type="date" class="form-control" id="date" formControlName="date">
     </div>
     <div class="form-group">
-      <label for="idAsset">Asset ID:</label>
-      <input type="number" class="form-control" id="idAsset" formControlName="idAsset">
+      <label for="idPortfolio">Carteira:</label>
+      <input type="number" class="form-control" id="idPortfolio" formControlName="idPortfolio">
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary" (click)="voltar()">Voltar</button>
+    <button type="submit" class="btn btn-primary">Incluir</button>
   </form>

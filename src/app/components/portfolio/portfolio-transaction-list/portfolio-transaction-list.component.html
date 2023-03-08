@@ -4,23 +4,23 @@
     <thead>
     <tr>
       <th>ID</th>
+      <th>Ativo</th>
       <th>Quantity</th>
-      <th>Purchase Price</th>
+      <th>Preço da Ordem</th>
+      <th>Tipo de Operação</th>
       <th>Date</th>
-      <th>Type</th>
-      <th>Portfolio ID</th>
-      <th>Asset ID</th>
+      <th>Carteira</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let asset of assetPortfolioList$ | async">
       <td>{{ asset.id }}</td>
+      <td>{{ asset.idAsset }}</td>
       <td>{{ asset.quantity }}</td>
       <td>{{ asset.purchasePrice }}</td>
-      <td>{{ asset.date | date }}</td>
       <td>{{ asset.type }}</td>
+      <td>{{ asset.date | date }}</td>
       <td>{{ asset.idPortfolio }}</td>
-      <td>{{ asset.idAsset }}</td>
     </tr>
   </tbody>
 </table>
