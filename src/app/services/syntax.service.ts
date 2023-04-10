@@ -3,6 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AssetClass } from '../models/asset-class';
 import { AssetPortfolio } from '../models/asset-portfolio';
+import { Asset } from '../models/asset';
+import { Portfolio } from '../models/portfolio';
+import { TransactionClass } from '../models/transaction-class';
+import { Transaction } from '../models/transaction';
 import { environment } from 'src/environment/environment';
 
 @Injectable({
@@ -14,6 +18,25 @@ export class SyntaxService {
   constructor(private http: HttpClient) { }
 
   // Métodos para Asset
+  getAssetList(): Observable<Asset[]> {
+    return this.http.get<Asset[]>(`${this.baseUrl}/Asset`);
+  }
+
+  getAsset(id: number): Observable<Asset[]> {
+    return this.http.get<Asset[]>(`${this.baseUrl}/Asset/${id}`);
+  }
+
+  postAsset(Asset: Asset): Observable<Asset> {
+    return this.http.post<Asset>(`${this.baseUrl}/Asset`, Asset);
+  }
+
+  putAsset(Asset: Asset): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/Asset/${Asset.id}`, Asset);
+  }
+
+  deleteAsset(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/Asset/${id}`);
+  }
 
   // Métodos para AssetClass
   getAssetClassList(): Observable<AssetClass[]> {
@@ -58,11 +81,67 @@ export class SyntaxService {
   }
 
   // Métodos para Portfolio
+  getPortfolioList(): Observable<Portfolio[]> {
+    return this.http.get<Portfolio[]>(`${this.baseUrl}/Portfolio`);
+  }
+
+  getPortfolio(id: number): Observable<Portfolio> {
+    return this.http.get<Portfolio>(`${this.baseUrl}/Portfolio/${id}`);
+  }
+
+  postPortfolio(portfolio: Portfolio): Observable<Portfolio> {
+    return this.http.post<Portfolio>(`${this.baseUrl}/Portfolio`, portfolio);
+  }
+
+  putPortfolio(portfolio: Portfolio): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/Portfolio/${portfolio.id}`, portfolio);
+  }
+
+  deletePortfolio(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/Portfolio/${id}`);
+  }
 
   // Métodos para Transaction
+  getTransactionClassList(): Observable<TransactionClass[]> {
+    return this.http.get<TransactionClass[]>(`${this.baseUrl}/TransactionClass`);
+  }
 
+  getTransactionClass(id: number): Observable<TransactionClass> {
+    return this.http.get<TransactionClass>(`${this.baseUrl}/TransactionClass/${id}`);
+  }
+
+  postTransactionClass(transactionClass: TransactionClass): Observable<TransactionClass> {
+    return this.http.post<TransactionClass>(`${this.baseUrl}/TransactionClass`, transactionClass);
+  }
+
+  putTransactionClass(transactionClass: TransactionClass): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/TransactionClass/${transactionClass.id}`, transactionClass);
+  }
+
+  deleteTransactionClass(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/TransactionClass/${id}`);
+  }
   // Métodos para TransactionClass
+  getTransactionList(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.baseUrl}/Transaction`);
+  }
 
+  getTransaction(id: number): Observable<Transaction> {
+    return this.http.get<Transaction>(`${this.baseUrl}/Transaction/${id}`);
+  }
+
+  postTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(`${this.baseUrl}/Transaction`, transaction);
+  }
+
+  putTransaction(transaction: Transaction): Observable<void> {
+    return this.http.put<void>(`${this.baseUrl}/Transaction/${transaction.id}`, transaction);
+  }
+
+  deleteTransaction(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/Transaction/${id}`);
+  }
+  
   // Métodos para User
 
 }
