@@ -24,6 +24,7 @@ import { PortfolioTransactionComponent } from './components/portfolio/portfolio-
 import { PortfolioTransactionListComponent } from './components/portfolio/portfolio-transaction-list/portfolio-transaction-list.component';
 import { PortfolioTransactionNewComponent } from './components/portfolio/portfolio-transaction-new/portfolio-transaction-new.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LoginComponent } from './components/login/login.component';
     PortfolioTransactionListComponent,
     PortfolioTransactionNewComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

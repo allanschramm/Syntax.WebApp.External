@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   updateHeaderAndFooter(url: string): void {
-    if (url === '/login' || url === '/landing' || url === '/') {
+    if (url === '/login' || url === '/register' || url === '/landing' || url === '/') {
       this.componentShowService.setHeaderAndFooter(false);
     } else {
       this.componentShowService.setHeaderAndFooter(true);

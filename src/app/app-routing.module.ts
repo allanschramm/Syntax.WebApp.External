@@ -9,10 +9,12 @@ import { PortfolioDashboardComponent } from './components/portfolio/portfolio-da
 import { PortfolioTransactionNewComponent } from './components/portfolio/portfolio-transaction-new/portfolio-transaction-new.component';
 import { PortfolioTransactionComponent } from './components/portfolio/portfolio-transaction/portfolio-transaction.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'finances', component: FinanceComponent },
   {
