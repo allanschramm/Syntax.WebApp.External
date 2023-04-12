@@ -10,13 +10,25 @@ import { PortfolioTransactionNewComponent } from './components/portfolio/portfol
 import { PortfolioTransactionComponent } from './components/portfolio/portfolio-transaction/portfolio-transaction.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FinanceDashboardComponent } from './components/finance/finance-dashboard/finance-dashboard.component';
+import { FinanceTransactionComponent } from './components/finance/finance-transaction/finance-transaction.component';
+import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'finances', component: FinanceComponent },
+  { 
+    path: 'finances',
+    component: FinanceComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: FinanceDashboardComponent },
+      { path: 'transaction', component: FinanceTransactionComponent },
+      { path: 'new', component: FinanceTransactionNewComponent },
+    ],
+   },
   {
     path: 'portfolio',
     component: PortfolioComponent,

@@ -25,6 +25,11 @@ import { PortfolioTransactionListComponent } from './components/portfolio/portfo
 import { PortfolioTransactionNewComponent } from './components/portfolio/portfolio-transaction-new/portfolio-transaction-new.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FinanceSidebarComponent } from './components/finance/finance-sidebar/finance-sidebar.component';
+import { FinanceDashboardComponent } from './components/finance/finance-dashboard/finance-dashboard.component';
+import { FinanceTransactionComponent } from './components/finance/finance-transaction/finance-transaction.component';
+import { FinanceTransactionListComponent } from './components/finance/finance-transaction-list/finance-transaction-list.component';
+import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,11 @@ import { RegisterComponent } from './components/register/register.component';
     PortfolioTransactionNewComponent,
     LoginComponent,
     RegisterComponent,
+    FinanceSidebarComponent,
+    FinanceDashboardComponent,
+    FinanceTransactionComponent,
+    FinanceTransactionListComponent,
+    FinanceTransactionNewComponent,
   ],
   imports: [
     BrowserModule,
