@@ -1,1 +1,24 @@
-<p>finance-transaction-list works!</p>
+<h1>All Transactions</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of transactionList$ | async">
+      <td>{{ transaction.id }}</td>
+      <td>{{ transaction.value }}</td>
+      <td>{{ transaction.description }}</td>
+      <td>{{ transaction.date | date }}</td>
+      <td>{{ transaction.type }}</td>
+      <td>{{ transaction.idTransactionClass }}</td>
+    </tr>
+  </tbody>
+</table>

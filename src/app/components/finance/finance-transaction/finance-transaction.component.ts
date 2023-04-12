@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-finance-transaction',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./finance-transaction.component.css']
 })
 export class FinanceTransactionComponent {
+
+  constructor(private router: Router) { }
+
+  newTransaction() {
+    this.router.navigate(['/finances/new']);
+  }
 
 }
