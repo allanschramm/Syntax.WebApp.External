@@ -1,1 +1,94 @@
-<p>register works!</p>
+<body>
+  <section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-center mb-5">Create an account</h2>
+
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                  <div class="form-outline mb-4 wrap-input100 validate-input">
+                    <input type="text" id="name" formControlName="name" class="form-control form-control-lg input100" placeholder="Name" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                      <i class="material-icons" aria-hidden="true">badge</i>
+                    </span>
+                    <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+                      *Name is required
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4 wrap-input100 validate-input">
+                    <input type="text" id="lastname" formControlName="lastname" class="form-control form-control-lg input100" placeholder="Last Name" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                      <i class="material-icons" aria-hidden="true">badge</i>
+                    </span>
+                    <div *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched">
+                      *Last Name is required
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4 wrap-input100 validate-input">
+                    <input type="email" id="email" formControlName="email" class="form-control form-control-lg input100" placeholder="Email" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                      <i class="material-icons" aria-hidden="true">mail</i>
+                    </span>
+                    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                      *Email is required
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4 wrap-input100 validate-input">
+                    <input type="password" id="password" formControlName="password" class="form-control form-control-lg input100" placeholder="Password" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                      <i class="material-icons" aria-hidden="true">lock</i>
+                    </span>
+                    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                      *Password is required and must have at least 6 characters
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4 wrap-input100 validate-input">
+                    <input type="password" id="passwordCheck" formControlName="passwordCheck" class="form-control form-control-lg input100" placeholder="Repeat Your Password" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                      <i class="material-icons" aria-hidden="true">lock</i>
+                    </span>
+                    <div
+                      *ngIf="registerForm.get('passwordCheck')?.invalid && registerForm.get('passwordCheck')?.touched">
+                      *Password confirmation is required
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="checkbox" />
+                    <label class="form-check-label" for="form2Example3g">
+                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center container-btn">
+                    <button type="submit" [disabled]="!registerForm.valid"
+                      class="btn btn-block btn-lg register-form-btn">
+                      Register
+                    </button>
+                  </div>
+
+                  <p class="text-center"><button class="txt" (click)="login()">Have already an account?</button></p>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
