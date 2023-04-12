@@ -30,6 +30,8 @@ import { FinanceDashboardComponent } from './components/finance/finance-dashboar
 import { FinanceTransactionComponent } from './components/finance/finance-transaction/finance-transaction.component';
 import { FinanceTransactionListComponent } from './components/finance/finance-transaction-list/finance-transaction-list.component';
 import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
+import { HomeSidebarComponent } from './components/home/home-sidebar/home-sidebar.component';
+import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { FinanceTransactionNewComponent } from './components/finance/finance-tra
     FinanceTransactionComponent,
     FinanceTransactionListComponent,
     FinanceTransactionNewComponent,
+    HomeSidebarComponent,
+    HomeDashboardComponent,
   ],
   imports: [
     BrowserModule,

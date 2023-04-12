@@ -13,12 +13,20 @@ import { RegisterComponent } from './components/register/register.component';
 import { FinanceDashboardComponent } from './components/finance/finance-dashboard/finance-dashboard.component';
 import { FinanceTransactionComponent } from './components/finance/finance-transaction/finance-transaction.component';
 import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
+import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
+  { 
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: HomeDashboardComponent}
+    ]
+  },
   { 
     path: 'finances',
     component: FinanceComponent,
@@ -28,7 +36,7 @@ const routes: Routes = [
       { path: 'transaction', component: FinanceTransactionComponent },
       { path: 'new', component: FinanceTransactionNewComponent },
     ],
-   },
+  },
   {
     path: 'portfolio',
     component: PortfolioComponent,
