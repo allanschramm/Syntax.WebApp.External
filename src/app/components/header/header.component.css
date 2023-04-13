@@ -1,6 +1,7 @@
 .navbar {
     display: flex;
     padding-left: 10px;
+    border-bottom: 1px solid darkgray;
 }
 
 img {
