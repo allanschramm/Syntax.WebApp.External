@@ -16,7 +16,7 @@
         <input type="text" class="form-control" id="type" formControlName="type">
       </div>
       <div class="form-group">
-        <label for="idClass">Carteira:</label>
+        <label for="idClass">Class:</label>
         <select class="form-control" id="idClass" formControlName="idClass">
           <option *ngFor="let transactionClass of transactionClassList" [value]="transactionClass.id">{{ transactionClass.name }}</option>
         </select>

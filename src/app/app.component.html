@@ -1,9 +1,9 @@
 <div *ngIf="componentShowService.showHeaderAndFooter$ | async as showHeaderAndFooter">
-    <app-header *ngIf="showHeaderAndFooter"></app-header>
-  </div>
-  
-  <router-outlet></router-outlet>
-  
-  <div *ngIf="componentShowService.showHeaderAndFooter$ | async as showHeaderAndFooter">
-    <app-footer *ngIf="showHeaderAndFooter"></app-footer>
-  </div>
+  <app-header *ngIf="showHeaderAndFooter"></app-header>
+</div>
+
+<router-outlet></router-outlet>
+
+<div *ngIf="componentShowService.showHeaderAndFooter$ | async as showHeaderAndFooter">
+  <app-footer *ngIf="showHeaderAndFooter"></app-footer>
+</div>
