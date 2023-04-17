@@ -29,16 +29,15 @@ export class AuthService {
     return this.http.get<void>('/api/Account/LoginWithLinkedIn');
   }
 
-  register(name: string, lastname: string, email: string, password: string, passwordCheck: string): Observable<any> {
+  register(name: string, lastname: string, email: string, password: string, reEntryPassword: string): Observable<any> {
     const data = {
-      Nome: name,
-      Sobrenome: lastname,
-      Email: email,
-      Password: password,
-      PasswordCheck: passwordCheck
+      name: name,
+      lastname: lastname,
+      email: email,
+      password: password,
+      reEntryPassword: reEntryPassword
     };
     return this.http.post<any>(`${this.apiUrl}/User/register`, data).pipe(
-      // Opcional: você pode adicionar lógica adicional após o registro bem-sucedido, como redirecionar para a página de login, exibir uma mensagem de sucesso, etc.
       tap(response => console.log('Registro bem-sucedido:', response))
     );
   }

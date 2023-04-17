@@ -55,13 +55,13 @@
                   </div>
 
                   <div class="form-outline mb-4 wrap-input100 validate-input">
-                    <input type="password" id="passwordCheck" formControlName="passwordCheck" class="form-control form-control-lg input100" placeholder="Repeat Your Password" />
+                    <input type="password" id="reEntryPassword" formControlName="reEntryPassword" class="form-control form-control-lg input100" placeholder="Repeat Your Password" />
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                       <i class="material-icons" aria-hidden="true">lock</i>
                     </span>
                     <div
-                      *ngIf="registerForm.get('passwordCheck')?.invalid && registerForm.get('passwordCheck')?.touched">
+                      *ngIf="registerForm.get('reEntryPassword')?.invalid && registerForm.get('reEntryPassword')?.touched">
                       *Password confirmation is required
                     </div>
                   </div>

@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      passwordCheck: ['', [Validators.required, Validators.minLength(6)]]
+      reEntryPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -30,11 +30,13 @@ export class RegisterComponent implements OnInit {
       const lastname = this.registerForm.get('lastname')?.value;
       const email = this.registerForm.get('email')?.value;
       const password = this.registerForm.get('password')?.value;
-      const passwordCheck = this.registerForm.get('passwordCheck')?.value;
+      const reEntryPassword = this.registerForm.get('reEntryPassword')?.value;
       
-      this.authService.register(name, lastname, email, password, passwordCheck).subscribe(
+      this.authService.register(name, lastname, email, password, reEntryPassword)
+      .subscribe(
         response => {
-          console.log('Registro bem-sucedido:', response);          
+          console.log('Registro bem-sucedido:', response);
+          this.router.navigate(['/login']);
         },
         error => {
           console.log('Erro no registro:', error);          
