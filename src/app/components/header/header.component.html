@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/home">
-            <img src="assets/img/logo.jpg" width="50">
+            <img src="assets\img\syntaxlogo.png" width="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,28 +10,96 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" (click)="setActive('home')" [ngClass]="{'active': activeItem === 'home'}" routerLink="/home">
+                    <a class="nav-link" (click)="setActive('home')" [ngClass]="{'active': activeItem === 'home'}"
+                        routerLink="/home">
                         <i class="material-icons">home</i>
-                        Home</a>
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="setActive('finances')" [ngClass]="{'active': activeItem === 'finances'}" routerLink="/finances">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" 
+                        [ngClass]="{'active': activeItem === 'finances'}">
                         <i class="material-icons">payments</i>
                         Finances
                     </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li>
+                            <a class="dropdown-item" (click)="setActive('finances')" routerLink="/finances/dashboard">
+                                <i class="material-icons"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="setActive('finances')" routerLink="/finances/transaction">
+                                <i class="material-icons"></i>
+                                Transactions
+                            </a>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="setActive('portfolio')" [ngClass]="{'active': activeItem === 'portfolio'}" routerLink="/portfolio/dashboard">
-                        <i class="material-icons">account_balance_wallet</i>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" [ngClass]="{'active': activeItem === 'portfolio'}">
+                        <i class="material-icons">savings</i>
                         Investments
                     </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li>
+                            <a class="dropdown-item" (click)="setActive('portfolio')" routerLink="/portfolio/dashboard">
+                                <i class="material-icons"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="setActive('portfolio')" routerLink="/portfolio/transaction">
+                                <i class="material-icons"></i>
+                                Transactions
+                            </a>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">
                         <i class="material-icons">workspace_premium</i>
                         Premium
                     </a>
-                  </li>          
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link disabled">
+                        <i class="material-icons">paid</i>
+                        Balance: R$ 00,00
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
+                        [ngClass]="{'active': activeItem === 'user'}">
+                        UserName
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li>
+                            <a class="dropdown-item" routerLink="/wallets" (click)="setActive('user')">
+                                <i class="material-icons">account_balance_wallet</i>
+                                Wallets
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="/profile" (click)="setActive('user')">
+                                <i class="material-icons">person</i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="logout()">
+                                <i class="material-icons">exit_to_app</i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
