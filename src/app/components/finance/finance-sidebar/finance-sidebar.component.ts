@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-finance-sidebar',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class FinanceSidebarComponent {
 
+  constructor(private authService: AuthService) {}
+
+  logout(): void {
+    this.authService.logout(); 
+  }
+  
 }
