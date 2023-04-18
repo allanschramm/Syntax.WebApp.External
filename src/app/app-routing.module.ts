@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './components/about/about.component';
 import { FinanceComponent } from './components/finance/finance.component';
 import { HomeComponent } from './components/home/home.component';
 import { LandingComponent } from './components/landing/landing.component';
@@ -14,11 +13,17 @@ import { FinanceDashboardComponent } from './components/finance/finance-dashboar
 import { FinanceTransactionComponent } from './components/finance/finance-transaction/finance-transaction.component';
 import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
 import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
+import { WalletsComponent } from './components/wallets/wallets.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'wallets', component: WalletsComponent },
+  { path: 'profile', component: ProfileComponent },
+
   { 
     path: 'home',
     component: HomeComponent,
@@ -46,8 +51,7 @@ const routes: Routes = [
       { path: 'transaction', component: PortfolioTransactionComponent },
       { path: 'new', component: PortfolioTransactionNewComponent},
     ],
-  },
-  { path: 'landing', component: LandingComponent },
+  },  
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-// MÓDULOS DO MATERIALS
+// MÓDULOS DO SYNCFUSION
 
 // COMPONENTES DO PROJETO
 import { AppComponent } from './app.component';
@@ -32,6 +32,8 @@ import { FinanceTransactionListComponent } from './components/finance/finance-tr
 import { FinanceTransactionNewComponent } from './components/finance/finance-transaction-new/finance-transaction-new.component';
 import { HomeSidebarComponent } from './components/home/home-sidebar/home-sidebar.component';
 import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
+import { WalletsComponent } from './components/wallets/wallets.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { HomeDashboardComponent } from './components/home/home-dashboard/home-da
     FinanceTransactionNewComponent,
     HomeSidebarComponent,
     HomeDashboardComponent,
+    WalletsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
