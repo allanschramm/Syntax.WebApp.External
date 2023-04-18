@@ -18,8 +18,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" 
-                        [ngClass]="{'active': activeItem === 'finances'}">
+                        aria-expanded="false" [ngClass]="{'active': activeItem === 'finances'}">
                         <i class="material-icons">payments</i>
                         Finances
                     </a>
@@ -51,7 +50,8 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="setActive('portfolio')" routerLink="/portfolio/transaction">
+                            <a class="dropdown-item" (click)="setActive('portfolio')"
+                                routerLink="/portfolio/transaction">
                                 <i class="material-icons"></i>
                                 Transactions
                             </a>
@@ -72,8 +72,8 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" 
-                        [ngClass]="{'active': activeItem === 'user'}">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" [ngClass]="{'active': activeItem === 'user'}">
                         <i class="material-icons">person</i>
                         UserName
                     </a>
