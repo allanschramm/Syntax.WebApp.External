@@ -47,7 +47,6 @@ const routes: Routes = [
       { path: 'new', component: PortfolioTransactionNewComponent},
     ],
   },
-  { path: 'about', component: AboutComponent },
   { path: 'landing', component: LandingComponent },
 ];
 
