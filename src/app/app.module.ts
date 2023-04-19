@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 // MÓDULOS DO SYNCFUSION
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 // COMPONENTES DO PROJETO
 import { AppComponent } from './app.component';
@@ -68,6 +69,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    // Registering EJ2 Modules
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
