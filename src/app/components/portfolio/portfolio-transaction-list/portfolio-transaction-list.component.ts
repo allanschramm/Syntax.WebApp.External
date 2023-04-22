@@ -15,6 +15,5 @@ export class PortfolioTransactionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.assetPortfolioList$ = this.assetPortfolioService.getAssetPortfolioList();
-  }
-  
+  }  
 }

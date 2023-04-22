@@ -7,12 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./portfolio-transaction.component.css']
 })
 export class PortfolioTransactionComponent {
-
   constructor(private router: Router) { }
 
   newTransaction() {
     this.router.navigate(['/portfolio/new']);
   }
-
-
 }

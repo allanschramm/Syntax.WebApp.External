@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'jquery';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionClass } from 'src/app/models/transaction-class';
 import { SyntaxService } from 'src/app/services/syntax.service';
