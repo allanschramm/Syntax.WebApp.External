@@ -3,15 +3,18 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { last, tap } from 'rxjs/operators';
-import { environment } from 'src/environment/environment'
+import { environment } from 'src/environment/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private tokenKey = 'SyntaxToken';
+  private helper = new JwtHelperService();
+  currentUser: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService , private router: Router) { }
   apiUrl = environment.apiUrl;
 
   // Método para verificar se o token está presente no LocalStorage
@@ -40,7 +43,15 @@ export class AuthService {
       Password: password
     };
     return this.http.post<any>(`${this.apiUrl}/User/login`, data).pipe(
-      tap(response => localStorage.setItem(this.tokenKey, response.token))
+      tap(response => {
+        localStorage.setItem(this.tokenKey, response.token);
+        const decodedToken = this.helper.decodeToken(response.token);
+        this.currentUser = {
+          name: decodedToken.name,
+          email: decodedToken.email,
+          id: decodedToken.id
+        };
+      })
     );
   }
 
