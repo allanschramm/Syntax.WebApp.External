@@ -35,6 +35,10 @@ import { HomeSidebarComponent } from './components/home/home-sidebar/home-sideba
 import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
 import { WalletsComponent } from './components/wallets/wallets.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { WalletsListComponent } from './components/wallets/wallets-list/wallets-list.component';
+import { WalletsNewComponent } from './components/wallets/wallets-new/wallets-new.component';
+import { WalletComponent } from './components/wallets/wallet/wallet.component';
+import { ProfileEditComponent } from './components/profile/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeDashboardComponent,
     WalletsComponent,
     ProfileComponent,
+    WalletsListComponent,
+    WalletsNewComponent,
+    WalletComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,

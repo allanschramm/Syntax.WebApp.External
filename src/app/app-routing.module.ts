@@ -15,21 +15,38 @@ import { FinanceTransactionNewComponent } from './components/finance/finance-tra
 import { HomeDashboardComponent } from './components/home/home-dashboard/home-dashboard.component';
 import { WalletsComponent } from './components/wallets/wallets.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { WalletsNewComponent } from './components/wallets/wallets-new/wallets-new.component';
+import { WalletComponent } from './components/wallets/wallet/wallet.component';
+import { ProfileEditComponent } from './components/profile/profile-edit/profile-edit.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'landing', component: LandingComponent },
-  { path: 'wallets', component: WalletsComponent },
-  { path: 'profile', component: ProfileComponent },
-
   { 
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      { path: '', redirectTo: 'edit', pathMatch: 'full' },
+      { path: 'edit', component: ProfileEditComponent }
+    ]
+  },
+  { 
+    path: 'wallets',
+    component: WalletsComponent,
+    children: [
+      { path: '', redirectTo: 'wallet', pathMatch: 'full' },
+      { path: 'wallet', component: WalletComponent },
+      { path: 'new', component: WalletsNewComponent }
+    ]
+  },
+  {
     path: 'home',
     component: HomeComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: HomeDashboardComponent}
+      { path: 'dashboard', component: HomeDashboardComponent }
     ]
   },
   { 
