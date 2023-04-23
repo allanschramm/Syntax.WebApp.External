@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 // MÓDULOS PADRÕES
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
@@ -39,6 +39,11 @@ import { WalletsListComponent } from './components/wallets/wallets-list/wallets-
 import { WalletsNewComponent } from './components/wallets/wallets-new/wallets-new.component';
 import { WalletComponent } from './components/wallets/wallet/wallet.component';
 import { ProfileEditComponent } from './components/profile/profile-edit/profile-edit.component';
+import { SyntaxService } from './services/syntax.service';
+import { AuthService } from './services/auth.service';
+import { ComponentshowService } from './services/componentshow.service';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -78,9 +83,18 @@ import { ProfileEditComponent } from './components/profile/profile-edit/profile-
     ReactiveFormsModule,
     FormsModule,
     // Registering EJ2 Modules
-    DialogModule
+    DialogModule,
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    JwtHelperService,
+    SyntaxService,
+    AuthService,
+    ComponentshowService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
