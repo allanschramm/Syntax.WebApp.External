@@ -24,7 +24,9 @@
     "@popperjs/core": "^2.11.6",
     "@syncfusion/ej2-angular-popups": "^21.1.41",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.2.1",
     "jquery": "^3.6.3",
+    "ng2-charts": "^4.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
