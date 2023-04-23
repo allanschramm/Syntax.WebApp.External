@@ -6,25 +6,46 @@ import { AssetPortfolio } from 'src/app/models/asset-portfolio';
 import { Portfolio } from 'src/app/models/portfolio';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
+enum EventTypeAssetPortfolio {
+  Compra = 0,
+  Venda = 1
+}
+
+interface EventTypeOption {
+  label: string;
+  value: number;
+}
+
 @Component({
   selector: 'app-portfolio-transaction-new',
   templateUrl: './portfolio-transaction-new.component.html',
   styleUrls: ['./portfolio-transaction-new.component.css']
 })
 export class PortfolioTransactionNewComponent implements OnInit {
-  
+
+  eventTypeMap = {
+    [EventTypeAssetPortfolio.Compra]: 0,
+    [EventTypeAssetPortfolio.Venda]: 1
+  };
+
+  eventTypeOptions: EventTypeOption[] = [
+    { label: 'Compra', value: this.eventTypeMap[EventTypeAssetPortfolio.Compra] },
+    { label: 'Venda', value: this.eventTypeMap[EventTypeAssetPortfolio.Venda] }
+  ];  
+
   assetPortfolioForm!: FormGroup;
   assetList: Asset[] = []; // Array para armazenar os ativos vindos da API
   portfolioList: Portfolio[] = []; // Array para armazenar as carteiras vindas da API
+
   
   constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private router: Router) {}
   
   ngOnInit(): void {
     this.assetPortfolioForm = this.formBuilder.group({
       idAsset: [''],
-      quantity: [''],
-      purchasePrice: [''],
-      type: [''],
+      quantity: 0,
+      purchasePrice: 0,
+      type: 0,
       date: [''],
       idPortfolio: ['']
     });
@@ -51,12 +72,29 @@ export class PortfolioTransactionNewComponent implements OnInit {
 
   onSubmit() {
     const assetPortfolio = this.assetPortfolioForm.value as AssetPortfolio;
+
+    // obter informações sobre o portfólio
+    const selectedPortfolio = this.portfolioList.find(p => p.id === assetPortfolio.idPortfolio);
+
+    // obter informações sobre o ativo
+    const selectedAsset = this.assetList.find(a => a.id === assetPortfolio.idAsset);
+
+    // preencher as propriedades Navigation do objeto AssetPortfolio
+    assetPortfolio.portfolioNavigation = selectedPortfolio!;
+    assetPortfolio.assetNavigation = selectedAsset!;
+
     this.syntaxService.postAssetPortfolio(assetPortfolio)
-    .subscribe(
-      () => {
-        this.router.navigate(['/portfolio/transaction']);
-      })
+      .subscribe(
+        () => {
+          this.router.navigate(['/portfolio/transaction']);
+        },
+        (error: any) => {
+          console.error('Erro ao criar transação de ativo:', error);
+        }
+      );
   }
+
+  
 
   voltar() : void {
     this.router.navigate(['/portfolio/transaction']);
