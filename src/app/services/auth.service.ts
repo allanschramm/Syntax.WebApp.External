@@ -5,17 +5,18 @@ import { Observable } from 'rxjs';
 import { last, tap } from 'rxjs/operators';
 import { environment } from 'src/environment/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { ApplicationUser } from '../models/application-user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private baseUrl = environment.apiUrl;
   private tokenKey = 'SyntaxToken';
-  private helper = new JwtHelperService();
   currentUser: any;
+  private helper = new JwtHelperService();
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService , private router: Router) { }
-  apiUrl = environment.apiUrl;
+  constructor(private http: HttpClient, private router: Router) { }
 
   // Método para verificar se o token está presente no LocalStorage
   isLoggedIn(): boolean {
@@ -42,14 +43,14 @@ export class AuthService {
       Email: email,
       Password: password
     };
-    return this.http.post<any>(`${this.apiUrl}/User/login`, data).pipe(
+    return this.http.post<any>(`${this.baseUrl}/User/login`, data).pipe(
       tap(response => {
         localStorage.setItem(this.tokenKey, response.token);
         const decodedToken = this.helper.decodeToken(response.token);
         this.currentUser = {
           name: decodedToken.name,
           email: decodedToken.email,
-          id: decodedToken.id
+          id: decodedToken.Id
         };
       })
     );
@@ -71,7 +72,7 @@ export class AuthService {
       password: password,
       reEntryPassword: reEntryPassword
     };
-    return this.http.post<any>(`${this.apiUrl}/User/register`, data).pipe(
+    return this.http.post<any>(`${this.baseUrl}/User/register`, data).pipe(
       tap(response => console.log('Registro bem-sucedido:', response))
     );
   }
@@ -79,5 +80,26 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenKey); // Remove o token do LocalStorage
     this.router.navigate(['/login']); // Redireciona para a página de login
+  }
+
+  // Métodos para User
+  getUserId(): string {
+    const token = localStorage.getItem(this.tokenKey);
+    if (token) {
+      const decodedToken = this.helper.decodeToken(token);
+      if (decodedToken) {
+        return decodedToken.Id ? decodedToken.Id : '';
+      }
+    }
+    return '';
+  }
+
+  getUserById(id: string): Observable<ApplicationUser> {
+    return this.http.get<ApplicationUser>(`${this.baseUrl}/User/${id}`);
+  }
+
+  editUser(user: ApplicationUser): Observable<ApplicationUser> {
+    const url = `${this.baseUrl}/${user.id}`;
+    return this.http.put<ApplicationUser>(url, user);
   }
 }
