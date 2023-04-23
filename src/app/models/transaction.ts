@@ -5,7 +5,7 @@ export class Transaction {
     public value: number;
     public description: string;
     public date: Date;
-    public type: string;
+    public type: number;
     public idUser: number;
     public idTransactionClass: number;
 
@@ -13,7 +13,7 @@ export class Transaction {
         this.value = 0;
         this.description = '';
         this.date = new Date();
-        this.type = '';
+        this.type = 0;
         this.idUser = 0;
         this.idTransactionClass = 0;
     }
