@@ -3,7 +3,18 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionClass } from 'src/app/models/transaction-class';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
+
+enum EventTypeTransaction {
+  Expense = 0,
+  Income = 1
+}
+
+interface EventTypeOption {
+  label: string;
+  value: number;
+}
 
 @Component({
   selector: 'app-finance-transaction-new',
@@ -12,17 +23,32 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 })
 export class FinanceTransactionNewComponent implements OnInit {
 
+  eventTypeMap = {
+    [EventTypeTransaction.Expense]: 0,
+    [EventTypeTransaction.Income]: 1
+  };
+
+  eventTypeOptions: EventTypeOption[] = [
+    { label: 'Expense', value: this.eventTypeMap[EventTypeTransaction.Expense] },
+    { label: 'Income', value: this.eventTypeMap[EventTypeTransaction.Income] }
+  ];  
+
   transactionForm!: FormGroup
   transactionClassList: TransactionClass[] = [];
 
-  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private syntaxService: SyntaxService, 
+    private authService: AuthService, 
+    private router: Router
+    ) { }
   
   ngOnInit(): void {
     this.transactionForm = this.formBuilder.group({
-      value: [''],
+      value: 0,
       description: [''],
       date: [''],
-      type: [''],
+      type: 0,
       idClass: ['']
     });
 
@@ -31,19 +57,29 @@ export class FinanceTransactionNewComponent implements OnInit {
         this.transactionClassList = classes;
       },
       (error: any) => {
-        console.error('Erro ao obter a lista de classes:', error);
+        console.error('Error while getting the TransactionClass list:', error);
       }
     );
   }
 
   onSubmit() {
     const transaction = this.transactionForm.value as Transaction;
+
+    transaction.idUser = this.authService.getUserId();
+
+    const selectedTransactionClass = this.transactionClassList.find(p => p.id === transaction.id);
+
+    transaction.transactionClassNavigation = selectedTransactionClass!;
+
     this.syntaxService.postTransaction(transaction)
     .subscribe(
       () => {
         this.router.navigate(['finances/transaction']);
+      },
+      (error: any) => {
+        console.error('Error while creating the Transaction:', error);
       }
-    )
+    );
   }
 
   voltar() : void {
