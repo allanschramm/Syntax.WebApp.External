@@ -3,12 +3,11 @@ export class Portfolio {
     public id?: number;
     public name: string;
     public description: string;
-    public idUser?: number;
+    public idUser: string;
 
     constructor() {
         this.name = '';
         this.description = '';
-        this.idUser = 0;
+        this.idUser = '';
     }
-
 }
