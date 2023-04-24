@@ -7,8 +7,8 @@ import { Portfolio } from 'src/app/models/portfolio';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 enum EventTypeAssetPortfolio {
-  Compra = 0,
-  Venda = 1
+  Buy = 0,
+  Sell = 1
 }
 
 interface EventTypeOption {
@@ -24,13 +24,13 @@ interface EventTypeOption {
 export class PortfolioTransactionNewComponent implements OnInit {
 
   eventTypeMap = {
-    [EventTypeAssetPortfolio.Compra]: 0,
-    [EventTypeAssetPortfolio.Venda]: 1
+    [EventTypeAssetPortfolio.Buy]: 0,
+    [EventTypeAssetPortfolio.Sell]: 1
   };
 
   eventTypeOptions: EventTypeOption[] = [
-    { label: 'Compra', value: this.eventTypeMap[EventTypeAssetPortfolio.Compra] },
-    { label: 'Venda', value: this.eventTypeMap[EventTypeAssetPortfolio.Venda] }
+    { label: 'Buy', value: this.eventTypeMap[EventTypeAssetPortfolio.Buy] },
+    { label: 'Sell', value: this.eventTypeMap[EventTypeAssetPortfolio.Sell] }
   ];  
 
   assetPortfolioForm!: FormGroup;
@@ -56,7 +56,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
         this.assetList = assets;
       },
       (error: any) => {
-        console.error('Erro ao obter a lista de ativos:', error);
+        console.error('Error while getting the Asset list::', error);
       }
     );
 
@@ -65,7 +65,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
         this.portfolioList = portfolios;
       },
       (error: any) => {
-        console.error('Erro ao obter a lista de carteiras:', error);
+        console.error('Error while getting the Portfolio list:', error);
       }
     );
   }
@@ -89,7 +89,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
           this.router.navigate(['/portfolio/transaction']);
         },
         (error: any) => {
-          console.error('Erro ao criar transação de ativo:', error);
+          console.error('Error while creating the Asset:', error);
         }
       );
   }
