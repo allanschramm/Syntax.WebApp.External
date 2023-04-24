@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Portfolio } from 'src/app/models/portfolio';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 @Component({
@@ -12,7 +13,12 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 export class WalletsNewComponent {
   portfolioForm!: FormGroup
   
-  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private syntaxService: SyntaxService,
+    private authService: AuthService,
+    private router: Router
+    ) { }
   
   ngOnInit(): void {
     this.portfolioForm = this.formBuilder.group({
@@ -23,6 +29,9 @@ export class WalletsNewComponent {
 
   onSubmit() {
     const portfolio = this.portfolioForm.value as Portfolio;
+
+    portfolio.idUser = this.authService.getUserId();
+
     this.syntaxService.postPortfolio(portfolio)
     .subscribe(
       () => {
