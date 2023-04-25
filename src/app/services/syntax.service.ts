@@ -101,7 +101,7 @@ export class SyntaxService {
     return this.http.delete<void>(`${this.baseUrl}/Portfolio/${id}`);
   }
 
-  // Métodos para Transaction
+  // Métodos para TransactionClass
   getTransactionClassList(): Observable<TransactionClass[]> {
     return this.http.get<TransactionClass[]>(`${this.baseUrl}/TransactionClass`);
   }
@@ -122,7 +122,7 @@ export class SyntaxService {
     return this.http.delete<void>(`${this.baseUrl}/TransactionClass/${id}`);
   }
   
-  // Métodos para TransactionClass
+  // Métodos para Transaction
   getTransactionList(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(`${this.baseUrl}/Transaction`);
   }
