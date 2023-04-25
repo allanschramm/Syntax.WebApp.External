@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ApplicationUser } from 'src/app/models/application-user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfileEditComponent {
   userForm: FormGroup;
-  user!: ApplicationUser;
+  user!: any;
 
   constructor(
     private fb: FormBuilder,
@@ -22,32 +21,31 @@ export class ProfileEditComponent {
       email: ['', Validators.required],
       name: ['', Validators.required],
       lastName: ['', Validators.required],
-      role: ['']
     });
   }
+
   ngOnInit(): void {
-    // obtém as informações do usuário logado
-    this.authService.getUserById(this.authService.getUserId()).subscribe((user: ApplicationUser) => {
-      // armazena o usuário em uma propriedade da classe
-      this.user = user;
-      // define os valores iniciais do formulário de edição com as informações do usuário
+    this.authService.getUserById(this.authService.getUserId()).subscribe((response: any) => {
+      this.user = response;
       this.userForm.setValue({
-        email: user.email,
-        name: user.name,
-        lastName: user.lastName,
-        role: user.role
+        email: this.user.email,
+        name: this.user.name,
+        lastName: this.user.lastName,
       });
-    });    
+    });
   }
 
-  onSubmit(): void {
-    const user = this.userForm.value as ApplicationUser;
-    user.id = this.authService.getUserId();;
-    this.authService.editUser(user).subscribe((user: ApplicationUser) => {
+  onSubmit(): void {    
+    this.user.email = this.userForm.value.email;
+    this.user.name = this.userForm.value.name;
+    this.user.lastName = this.userForm.value.lastName;
+
+    // user.id = this.authService.getUserId();
+    this.authService.editUser(this.user).subscribe((user) => {
       // sucesso
     }, (error) => {
       // erro
     });
   }
-  
+
 }
