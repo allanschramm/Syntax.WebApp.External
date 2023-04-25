@@ -18,6 +18,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WalletsNewComponent } from './components/wallets/wallets-new/wallets-new.component';
 import { WalletComponent } from './components/wallets/wallet/wallet.component';
 import { ProfileEditComponent } from './components/profile/profile-edit/profile-edit.component';
+import { FinanceTransactionEditComponent } from './components/finance/finance-transaction-edit/finance-transaction-edit.component';
+import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -57,6 +59,8 @@ const routes: Routes = [
       { path: 'dashboard', component: FinanceDashboardComponent },
       { path: 'transaction', component: FinanceTransactionComponent },
       { path: 'new', component: FinanceTransactionNewComponent },
+      { path: 'edit/:id', component: FinanceTransactionEditComponent },
+      { path: 'delete/:id', component: FinanceTransactionDeleteComponent },
     ],
   },
   {

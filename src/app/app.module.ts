@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 // MÓDULOS DO SYNCFUSION
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
+// MÓDULOS DO MATERIAL
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+
 // COMPONENTES DO PROJETO
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -44,6 +47,8 @@ import { AuthService } from './services/auth.service';
 import { ComponentshowService } from './services/componentshow.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { FinanceTransactionEditComponent } from './components/finance/finance-transaction-edit/finance-transaction-edit.component';
+import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +79,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     WalletsNewComponent,
     WalletComponent,
     ProfileEditComponent,
+    FinanceTransactionEditComponent,
+    FinanceTransactionDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,10 +89,12 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    // Registering EJ2 Modules
+
+    // MATERIAL
+    MatSnackBarModule,
+
+    // EJ2 Modules
     DialogModule,
-    BrowserModule,
-    HttpClientModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
