@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssetClass } from '../models/asset-class';
 import { AssetPortfolio } from '../models/asset-portfolio';
 import { Asset } from '../models/asset';
@@ -15,7 +16,7 @@ import { environment } from 'src/environment/environment';
 export class SyntaxService {
   private baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   // Métodos para Asset
   getAssetList(): Observable<Asset[]> {
@@ -135,12 +136,21 @@ export class SyntaxService {
     return this.http.post<Transaction>(`${this.baseUrl}/Transaction`, transaction);
   }
 
-  putTransaction(transaction: Transaction): Observable<void> {
+  putTransaction(transaction: Transaction): Observable<any> {
     return this.http.put<void>(`${this.baseUrl}/Transaction/${transaction.id}`, transaction);
   }
 
-  deleteTransaction(id: number): Observable<void> {
+  deleteTransaction(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/Transaction/${id}`);
   }
+
+  public mostrarMensagem(msg: string, isError: boolean = false): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: isError ? ['msg-error'] : ['msg-success']
+    });
+  }  
   
 }
