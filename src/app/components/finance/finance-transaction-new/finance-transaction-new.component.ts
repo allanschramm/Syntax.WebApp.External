@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionClass } from 'src/app/models/transaction-class';
@@ -31,7 +31,7 @@ export class FinanceTransactionNewComponent implements OnInit {
   eventTypeOptions: EventTypeOption[] = [
     { label: 'Expense', value: this.eventTypeMap[EventTypeTransaction.Expense] },
     { label: 'Income', value: this.eventTypeMap[EventTypeTransaction.Income] }
-  ];  
+  ];
 
   transactionForm!: FormGroup
   transactionClassList: TransactionClass[] = [];
@@ -45,11 +45,11 @@ export class FinanceTransactionNewComponent implements OnInit {
   
   ngOnInit(): void {
     this.transactionForm = this.formBuilder.group({
-      value: 0,
-      description: [''],
-      date: [''],
-      type: 0,
-      idClass: ['']
+      value: [0, [Validators.required, Validators.min(0)]],
+      description: ['', Validators.required],
+      date: ['', Validators.required],
+      type: [0, Validators.required],
+      idTransactionClass: [0, Validators.required]
     });
 
     this.syntaxService.getTransactionClassList().subscribe(
@@ -63,13 +63,14 @@ export class FinanceTransactionNewComponent implements OnInit {
   }
 
   onSubmit() {
-    const transaction = this.transactionForm.value as Transaction;
+    const transaction = new Transaction();
+    transaction.value = this.transactionForm.controls['value'].value
+    transaction.description = this.transactionForm.controls['description'].value;
+    transaction.date = this.transactionForm.controls['date'].value;
+    transaction.type = parseInt(this.transactionForm.controls['type'].value, 10);
+    transaction.idTransactionClass = parseInt(this.transactionForm.controls['idTransactionClass'].value, 10);
 
     transaction.idUser = this.authService.getUserId();
-
-    const selectedTransactionClass = this.transactionClassList.find(p => p.id === transaction.id);
-
-    transaction.transactionClassNavigation = selectedTransactionClass!;
 
     this.syntaxService.postTransaction(transaction)
     .subscribe(

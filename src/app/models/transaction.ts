@@ -12,9 +12,6 @@ export class Transaction {
     public idUser: string;
     public idTransactionClass: number;
 
-    public transactionClassNavigation: TransactionClass;
-    public userNavigation: ApplicationUser;
-
     constructor() {
         this.value = 0;
         this.description = '';
@@ -22,7 +19,5 @@ export class Transaction {
         this.type = 0;
         this.idUser = '';
         this.idTransactionClass = 0;
-        this.transactionClassNavigation = new TransactionClass();
-        this.userNavigation = new ApplicationUser();
     }
 }
