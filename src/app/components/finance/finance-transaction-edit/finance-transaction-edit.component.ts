@@ -39,9 +39,6 @@ export class FinanceTransactionEditComponent implements OnInit {
   transaction!: Transaction;
   transactionClassList: TransactionClass[] = [];
 
-  selectedEventType!: number; // valor inicial do select de "Operation Type"
-  selectedTransactionClass!: number; // valor inicial do select de "Class"
-
   constructor(
     private formBuilder: FormBuilder,
     private syntaxService: SyntaxService,
