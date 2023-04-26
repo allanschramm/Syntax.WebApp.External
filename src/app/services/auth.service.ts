@@ -88,7 +88,7 @@ export class AuthService {
     if (token) {
       const decodedToken = this.helper.decodeToken(token);
       if (decodedToken) {
-        return decodedToken.Id ? decodedToken.Id : '';
+        return decodedToken.id ? decodedToken.id : '';
       }
     }
     return '';
