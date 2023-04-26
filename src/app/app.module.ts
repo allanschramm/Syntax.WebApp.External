@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common'
 
 // MÓDULOS DO SYNCFUSION
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
@@ -103,6 +104,7 @@ import { FinanceTransactionDeleteComponent } from './components/finance/finance-
     SyntaxService,
     AuthService,
     ComponentshowService,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })
