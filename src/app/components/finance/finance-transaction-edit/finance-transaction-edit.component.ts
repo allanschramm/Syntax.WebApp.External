@@ -84,7 +84,26 @@ export class FinanceTransactionEditComponent implements OnInit {
     this.router.navigate(['/finances/transaction']);
   }
 
-  onSubmit(): void {
+  
+  onSubmit() {
+    const transaction = new Transaction();
+    transaction.id = parseInt(this.id);
+    transaction.value = this.transactionForm.controls['value'].value
+    transaction.description = this.transactionForm.controls['description'].value;
+    transaction.date = this.transactionForm.controls['date'].value;
+    transaction.type = parseInt(this.transactionForm.controls['type'].value, 10);
+    transaction.idTransactionClass = parseInt(this.transactionForm.controls['idTransactionClass'].value, 10);
 
+    transaction.idUser = this.authService.getUserId();
+
+    this.syntaxService.putTransaction(transaction)
+    .subscribe(
+      () => {
+        this.router.navigate(['finances/transaction']);
+      },
+      (error: any) => {
+        console.error('Error while creating the Transaction:', error);
+      }
+    );
   }
 }
