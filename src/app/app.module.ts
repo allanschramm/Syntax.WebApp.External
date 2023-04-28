@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common'
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 // MÓDULOS DO SYNCFUSION
@@ -15,6 +16,12 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
 // MÓDULOS DO MATERIAL
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+
+// SERVICES
+import { SyntaxService } from './services/syntax.service';
+import { AuthService } from './services/auth.service';
+import { ComponentshowService } from './services/componentshow.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 // COMPONENTES DO PROJETO
 import { AppComponent } from './app.component';
@@ -44,15 +51,13 @@ import { WalletsListComponent } from './components/wallets/wallets-list/wallets-
 import { WalletsNewComponent } from './components/wallets/wallets-new/wallets-new.component';
 import { WalletComponent } from './components/wallets/wallet/wallet.component';
 import { ProfileEditComponent } from './components/profile/profile-edit/profile-edit.component';
-import { SyntaxService } from './services/syntax.service';
-import { AuthService } from './services/auth.service';
-import { ComponentshowService } from './services/componentshow.service';
-import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { FinanceTransactionEditComponent } from './components/finance/finance-transaction-edit/finance-transaction-edit.component';
 import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
 import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
+
+// PIPES
+
 
 @NgModule({
   declarations: [
