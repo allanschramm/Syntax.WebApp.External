@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common'
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // MÓDULOS DO SYNCFUSION
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
@@ -50,6 +51,8 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { FinanceTransactionEditComponent } from './components/finance/finance-transaction-edit/finance-transaction-edit.component';
 import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
+import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
+import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +85,8 @@ import { FinanceTransactionDeleteComponent } from './components/finance/finance-
     ProfileEditComponent,
     FinanceTransactionEditComponent,
     FinanceTransactionDeleteComponent,
+    PortfolioTransactionEditComponent,
+    PortfolioTransactionDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +95,7 @@ import { FinanceTransactionDeleteComponent } from './components/finance/finance-
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule,
 
     // MATERIAL
     MatSnackBarModule,
