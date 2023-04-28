@@ -10,6 +10,7 @@
       <th>Operation Type</th>
       <th>Date</th>
       <th>Portfolio</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,14 @@
       <td>{{ asset.type }}</td>
       <td>{{ asset.date | date }}</td>
       <td>{{ asset.idPortfolio }}</td>
+      <td>
+        <a routerLink="/portfolio/edit/{{asset.id}}">
+          <i class="material-icons">edit_note</i>
+        </a>
+        <a routerLink="/portfolio/delete/{{asset.id}}">
+          <i class="material-icons delete">delete</i>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>
