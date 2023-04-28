@@ -19,7 +19,7 @@
         <td>{{ transaction.value }}</td>
         <td>{{ transaction.description }}</td>
         <td>{{ transaction.date | date }}</td>
-        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.type | financeEventType }}</td>
         <td>{{ transaction.idTransactionClass }}</td>
         <td>
           <a routerLink="/finances/edit/{{transaction.id}}">

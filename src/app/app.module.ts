@@ -55,6 +55,8 @@ import { FinanceTransactionEditComponent } from './components/finance/finance-tr
 import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
 import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
+import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
+import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
 
 // PIPES
 
@@ -92,6 +94,8 @@ import { PortfolioTransactionDeleteComponent } from './components/portfolio/port
     FinanceTransactionDeleteComponent,
     PortfolioTransactionEditComponent,
     PortfolioTransactionDeleteComponent,
+    FinanceEventTypePipe,
+    PortfolioEventTypePipe,
   ],
   imports: [
     BrowserModule,

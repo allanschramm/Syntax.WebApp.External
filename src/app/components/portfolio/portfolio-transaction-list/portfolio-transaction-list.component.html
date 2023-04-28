@@ -20,7 +20,7 @@
         <td>{{ asset.idAsset }}</td>
         <td>{{ asset.quantity }}</td>
         <td>{{ asset.purchasePrice }}</td>
-        <td>{{ asset.type }}</td>
+        <td>{{ asset.type | portfolioEventType }}</td>
         <td>{{ asset.date | date }}</td>
         <td>{{ asset.idPortfolio }}</td>
         <td>
