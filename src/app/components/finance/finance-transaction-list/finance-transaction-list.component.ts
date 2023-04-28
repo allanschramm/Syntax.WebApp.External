@@ -10,6 +10,7 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 })
 export class FinanceTransactionListComponent implements OnInit {
   transactionList$!: Observable<Transaction[]>;
+  p: number = 1;
 
   constructor(private transactionService: SyntaxService) { }
   

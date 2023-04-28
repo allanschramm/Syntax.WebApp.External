@@ -13,8 +13,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let transaction of transactionList$ | async">
-      <td>{{ transaction.id }}</td>
+    <ng-container *ngIf="transactionList$ | async as transactionList">
+      <tr *ngFor="let transaction of transactionList | paginate: { itemsPerPage: 10, currentPage: p }">      <td>{{ transaction.id }}</td>
       <td>{{ transaction.value }}</td>
       <td>{{ transaction.description }}</td>
       <td>{{ transaction.date | date }}</td>
@@ -29,5 +29,8 @@
         </a>
       </td>
     </tr>
+  </ng-container>
   </tbody>
 </table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
