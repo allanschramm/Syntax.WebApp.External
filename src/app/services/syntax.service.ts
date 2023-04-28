@@ -35,7 +35,7 @@ export class SyntaxService {
     return this.http.put<void>(`${this.baseUrl}/Asset/`, Asset);
   }
 
-  deleteAsset(id: number): Observable<void> {
+  deleteAsset(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/Asset/${id}`);
   }
 
@@ -56,7 +56,7 @@ export class SyntaxService {
     return this.http.put<void>(`${this.baseUrl}/AssetClass/`, AssetClass);
   }
 
-  deleteAssetClass(id: number): Observable<void> {
+  deleteAssetClass(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/AssetClass/${id}`);
   }
 
@@ -77,7 +77,7 @@ export class SyntaxService {
     return this.http.put<void>(`${this.baseUrl}/AssetPortfolio/`, assetPortfolio);
   }
 
-  deleteAssetPortfolio(id: number): Observable<void> {
+  deleteAssetPortfolio(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/AssetPortfolio/${id}`);
   }
 
@@ -98,7 +98,7 @@ export class SyntaxService {
     return this.http.put<void>(`${this.baseUrl}/Portfolio/`, portfolio);
   }
 
-  deletePortfolio(id: number): Observable<void> {
+  deletePortfolio(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/Portfolio/${id}`);
   }
 
@@ -119,7 +119,7 @@ export class SyntaxService {
     return this.http.put<void>(`${this.baseUrl}/TransactionClass/`, transactionClass);
   }
 
-  deleteTransactionClass(id: number): Observable<void> {
+  deleteTransactionClass(id: number): Observable<any> {
     return this.http.delete<void>(`${this.baseUrl}/TransactionClass/${id}`);
   }
   
