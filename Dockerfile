@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:16 as build
 
 WORKDIR /app
 
@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 80
+FROM nginx:stable
 
-CMD ["npm", "start"]
+COPY --from=build /app/dist/* /usr/share/nginx/html/
+
+EXPOSE 80
