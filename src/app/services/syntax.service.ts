@@ -44,8 +44,8 @@ export class SyntaxService {
     return this.http.get<AssetClass[]>(`${this.baseUrl}/AssetClass`);
   }
 
-  getAssetClass(id: number): Observable<AssetClass[]> {
-    return this.http.get<AssetClass[]>(`${this.baseUrl}/AssetClass/${id}`);
+  getAssetClass(id: number): Observable<AssetClass> {
+    return this.http.get<AssetClass>(`${this.baseUrl}/AssetClass/${id}`);
   }
 
   postAssetClass(AssetClass: AssetClass): Observable<AssetClass> {
