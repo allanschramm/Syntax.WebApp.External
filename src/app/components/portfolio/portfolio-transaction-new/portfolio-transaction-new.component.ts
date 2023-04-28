@@ -71,7 +71,13 @@ export class PortfolioTransactionNewComponent implements OnInit {
   }
 
   onSubmit() {
-    const assetPortfolio = this.assetPortfolioForm.value as AssetPortfolio;
+    const assetPortfolio = new AssetPortfolio;
+    assetPortfolio.idAsset = this.assetPortfolioForm.controls['idAsset'].value;
+    assetPortfolio.quantity = this.assetPortfolioForm.controls['quantity'].value;
+    assetPortfolio.purchasePrice = this.assetPortfolioForm.controls['purchasePrice'].value;
+    assetPortfolio.type = parseInt(this.assetPortfolioForm.controls['type'].value, 10);
+    assetPortfolio.date = this.assetPortfolioForm.controls['date'].value;
+    assetPortfolio.idPortfolio = this.assetPortfolioForm.controls['idPortfolio'].value;
 
     // obter informações sobre o portfólio
     const selectedPortfolio = this.portfolioList.find(p => p.id === assetPortfolio.idPortfolio);
@@ -92,9 +98,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
           console.error('Error while creating the Asset:', error);
         }
       );
-  }
-
-  
+  }  
 
   voltar() : void {
     this.router.navigate(['/portfolio/transaction']);
