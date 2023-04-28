@@ -1,7 +1,7 @@
 <h1>All Transactions</h1>
 
 <table class="table table-bordered table-striped table-hover">
-    <thead>
+  <thead>
     <tr>
       <th>ID</th>
       <th>Value</th>
@@ -14,22 +14,23 @@
   </thead>
   <tbody>
     <ng-container *ngIf="transactionList$ | async as transactionList">
-      <tr *ngFor="let transaction of transactionList | paginate: { itemsPerPage: 10, currentPage: p }">      <td>{{ transaction.id }}</td>
-      <td>{{ transaction.value }}</td>
-      <td>{{ transaction.description }}</td>
-      <td>{{ transaction.date | date }}</td>
-      <td>{{ transaction.type }}</td>
-      <td>{{ transaction.idTransactionClass }}</td>
-      <td>
-        <a routerLink="/finances/edit/{{transaction.id}}">
-          <i class="material-icons">edit_note</i>
-        </a>
-        <a routerLink="/finances/delete/{{transaction.id}}">
-          <i class="material-icons delete">delete</i>
-        </a>
-      </td>
-    </tr>
-  </ng-container>
+      <tr *ngFor="let transaction of transactionList | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.value }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.date | date }}</td>
+        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.idTransactionClass }}</td>
+        <td>
+          <a routerLink="/finances/edit/{{transaction.id}}">
+            <i class="material-icons">edit_note</i>
+          </a>
+          <a routerLink="/finances/delete/{{transaction.id}}">
+            <i class="material-icons delete">delete</i>
+          </a>
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
 
