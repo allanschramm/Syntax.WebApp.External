@@ -5,6 +5,7 @@
     <tr>
       <th>ID</th>
       <th>Asset</th>
+      <th>Asset Class</th>
       <th>Quantity</th>
       <th>Order Price</th>
       <th>Operation Type</th>
@@ -15,19 +16,20 @@
   </thead>
   <tbody>
     <ng-container *ngIf="assetPortfolioList$ | async as assetPortfolioList">
-      <tr *ngFor="let asset of assetPortfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
-        <td>{{ asset.id }}</td>
-        <td>{{ asset.idAsset }}</td>
-        <td>{{ asset.quantity }}</td>
-        <td>{{ asset.purchasePrice }}</td>
-        <td>{{ asset.type | portfolioEventType }}</td>
-        <td>{{ asset.date | date }}</td>
-        <td>{{ asset.idPortfolio }}</td>
+      <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{ assetPortfolio.id }}</td>
+        <td>{{ getAssetName(assetPortfolio.idAsset) }}</td>
+        <td>{{ getAssetClassName(assetPortfolio.idAsset) }}</td>
+        <td>{{ assetPortfolio.quantity }}</td>
+        <td>{{ assetPortfolio.purchasePrice }}</td>
+        <td>{{ assetPortfolio.type | portfolioEventType }}</td>
+        <td>{{ assetPortfolio.date | date }}</td>
+        <td>{{ getPortfolioName(assetPortfolio.idPortfolio) }}</td>
         <td>
-          <a routerLink="/portfolio/edit/{{asset.id}}">
+          <a routerLink="/portfolio/edit/{{assetPortfolio.id}}">
             <i class="material-icons">edit_note</i>
           </a>
-          <a routerLink="/portfolio/delete/{{asset.id}}">
+          <a routerLink="/portfolio/delete/{{assetPortfolio.id}}">
             <i class="material-icons delete">delete</i>
           </a>
         </td>
