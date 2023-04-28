@@ -8,9 +8,7 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: [
-    './login.component.css','./css/main.css', './css/util.css','./fonts/font-awesome-4.7.0/css/font-awesome.css', './fonts/font-awesome-4.7.0/css/font-awesome.min.css','./vendor/animate/animate.css', './vendor/bootstrap/css/bootstrap.min.css', './vendor/css-hamburgers/hamburgers.min.css', './vendor/css-hamburgers/hamburgers.min.css', './vendor/select2/select2.min.css'
-  ]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   email: string = "";
