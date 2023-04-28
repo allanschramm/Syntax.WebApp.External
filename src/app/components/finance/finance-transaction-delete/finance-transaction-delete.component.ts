@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Transaction } from 'src/app/models/transaction';
 import { SyntaxService } from 'src/app/services/syntax.service';
@@ -8,7 +8,7 @@ import { SyntaxService } from 'src/app/services/syntax.service';
   templateUrl: './finance-transaction-delete.component.html',
   styleUrls: ['./finance-transaction-delete.component.css']
 })
-export class FinanceTransactionDeleteComponent {
+export class FinanceTransactionDeleteComponent implements OnInit {
   
   constructor(
     private syntaxService: SyntaxService,
