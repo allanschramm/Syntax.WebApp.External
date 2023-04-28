@@ -1,0 +1,35 @@
+<h1>Asset List</h1>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Asset</th>
+      <th>Quantity</th>
+      <th>Order Price</th>
+      <th>Operation Type</th>
+      <th>Date</th>
+      <th>Portfolio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="assetPortfolio">
+      <td>{{ assetPortfolio.id }}</td>
+      <td>{{ assetPortfolio.idAsset }}</td>
+      <td>{{ assetPortfolio.quantity }}</td>
+      <td>{{ assetPortfolio.purchasePrice }}</td>
+      <td>{{ assetPortfolio.type }}</td>
+      <td>{{ assetPortfolio.date | date }}</td>
+      <td>{{ assetPortfolio.idPortfolio }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="margin-bottom: 5px;">
+  <button type="button" class="btn btn-secondary" (click)="back()">
+      Back
+  </button> 
+  <button type="button" class="btn btn-danger" (click)="remove()">
+      Remove
+  </button>           
+</div>
