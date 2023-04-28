@@ -2,11 +2,11 @@ export class AssetClass {
 
     public id? : number;
 
-    public Name : string;
-    public Description : string;
+    public name : string;
+    public description : string;
 
     constructor() {
-        this.Name = '';
-        this.Description = '';
+        this.name = '';
+        this.description = '';
     }
 }
