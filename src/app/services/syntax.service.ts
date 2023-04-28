@@ -32,7 +32,7 @@ export class SyntaxService {
   }
 
   putAsset(Asset: Asset): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/Asset/${Asset.id}`, Asset);
+    return this.http.put<void>(`${this.baseUrl}/Asset/`, Asset);
   }
 
   deleteAsset(id: number): Observable<void> {
@@ -53,7 +53,7 @@ export class SyntaxService {
   }
 
   putAssetClass(AssetClass: AssetClass): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/AssetClass/${AssetClass.id}`, AssetClass);
+    return this.http.put<void>(`${this.baseUrl}/AssetClass/`, AssetClass);
   }
 
   deleteAssetClass(id: number): Observable<void> {
@@ -74,7 +74,7 @@ export class SyntaxService {
   }
 
   putAssetPortfolio(assetPortfolio: AssetPortfolio): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/AssetPortfolio/${assetPortfolio.id}`, assetPortfolio);
+    return this.http.put<void>(`${this.baseUrl}/AssetPortfolio/`, assetPortfolio);
   }
 
   deleteAssetPortfolio(id: number): Observable<void> {
@@ -95,7 +95,7 @@ export class SyntaxService {
   }
 
   putPortfolio(portfolio: Portfolio): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/Portfolio/${portfolio.id}`, portfolio);
+    return this.http.put<void>(`${this.baseUrl}/Portfolio/`, portfolio);
   }
 
   deletePortfolio(id: number): Observable<void> {
@@ -116,7 +116,7 @@ export class SyntaxService {
   }
 
   putTransactionClass(transactionClass: TransactionClass): Observable<void> {
-    return this.http.put<void>(`${this.baseUrl}/TransactionClass/${transactionClass.id}`, transactionClass);
+    return this.http.put<void>(`${this.baseUrl}/TransactionClass/`, transactionClass);
   }
 
   deleteTransactionClass(id: number): Observable<void> {
@@ -137,7 +137,7 @@ export class SyntaxService {
   }
 
   putTransaction(transaction: Transaction): Observable<any> {
-    return this.http.put<void>(`${this.baseUrl}/Transaction/${transaction.id}`, transaction);
+    return this.http.put<void>(`${this.baseUrl}/Transaction/`, transaction);
   }
 
   deleteTransaction(id: number): Observable<any> {
