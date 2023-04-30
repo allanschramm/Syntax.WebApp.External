@@ -11,6 +11,9 @@ import { DatePipe } from '@angular/common'
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+// MÓDULOS DE CHARTS
+import { NgChartsModule } from 'ng2-charts';
+
 // MÓDULOS DO SYNCFUSION
 import { DialogModule } from '@syncfusion/ej2-angular-popups';
 
@@ -55,10 +58,11 @@ import { FinanceTransactionEditComponent } from './components/finance/finance-tr
 import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
 import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
-import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
-import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
+import { ClassByUserComponent } from './components/charts/finance/class-by-user/class-by-user.component';
 
 // PIPES
+import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
+import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
 
 
 @NgModule({
@@ -96,6 +100,7 @@ import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
     PortfolioTransactionDeleteComponent,
     FinanceEventTypePipe,
     PortfolioEventTypePipe,
+    ClassByUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +116,7 @@ import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
 
     // EJ2 Modules
     DialogModule,
+      NgChartsModule,
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
