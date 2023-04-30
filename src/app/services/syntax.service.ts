@@ -23,6 +23,18 @@ export class SyntaxService {
     return this.http.get<any>(`${this.baseUrl}/Dashboard/TransactionByClassUser/${id}`)
   }
 
+  getPortfolioEvolutionsByUser(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/PortfolioEvolutionByUser/${id}`)
+  }
+
+  getAssetByClassByUser(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/AssetByClassByUser/${id}`)
+  }
+
+  getAssetByPortfolioByUser(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/AssetByPortfolioByUser/${id}`)
+  }
+
   // Métodos para Asset
   getAssetList(): Observable<Asset[]> {
     return this.http.get<Asset[]>(`${this.baseUrl}/Asset`);
