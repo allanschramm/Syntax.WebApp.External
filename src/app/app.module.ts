@@ -26,6 +26,10 @@ import { AuthService } from './services/auth.service';
 import { ComponentshowService } from './services/componentshow.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
+// PIPES
+import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
+import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
+
 // COMPONENTES DO PROJETO
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -59,11 +63,10 @@ import { FinanceTransactionDeleteComponent } from './components/finance/finance-
 import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
 import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
 import { ClassByUserComponent } from './components/charts/finance/class-by-user/class-by-user.component';
-
-// PIPES
-import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
-import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
 import { ClassByUserPercentageComponent } from './components/charts/finance/class-by-user-percentage/class-by-user-percentage.component';
+import { AssetsByClassComponent } from './components/charts/portfolio/assets-by-class/assets-by-class.component';
+import { AssetsByPortfolioComponent } from './components/charts/portfolio/assets-by-portfolio/assets-by-portfolio.component';
+import { PortfolioEvolutionComponent } from './components/charts/portfolio/portfolio-evolution/portfolio-evolution.component';
 
 
 @NgModule({
@@ -103,6 +106,9 @@ import { ClassByUserPercentageComponent } from './components/charts/finance/clas
     PortfolioEventTypePipe,
     ClassByUserComponent,
     ClassByUserPercentageComponent,
+    AssetsByClassComponent,
+    AssetsByPortfolioComponent,
+    PortfolioEvolutionComponent,
   ],
   imports: [
     BrowserModule,
