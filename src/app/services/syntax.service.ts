@@ -18,6 +18,11 @@ export class SyntaxService {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
+  // Métodos para Dashboard
+  getTransactionByClassByUser(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/TransactionByClassUser/${id}`)
+  }
+
   // Métodos para Asset
   getAssetList(): Observable<Asset[]> {
     return this.http.get<Asset[]>(`${this.baseUrl}/Asset`);
