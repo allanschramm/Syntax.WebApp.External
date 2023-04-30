@@ -63,6 +63,7 @@ import { ClassByUserComponent } from './components/charts/finance/class-by-user/
 // PIPES
 import { FinanceEventTypePipe } from './pipes/finance-event-type.pipe';
 import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
+import { ClassByUserPercentageComponent } from './components/charts/finance/class-by-user-percentage/class-by-user-percentage.component';
 
 
 @NgModule({
@@ -101,6 +102,7 @@ import { PortfolioEventTypePipe } from './pipes/portfolio-event-type.pipe';
     FinanceEventTypePipe,
     PortfolioEventTypePipe,
     ClassByUserComponent,
+    ClassByUserPercentageComponent,
   ],
   imports: [
     BrowserModule,
