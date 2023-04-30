@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { config } from 'rxjs';
-import { FinanceEventTypePipe } from 'src/app/pipes/finance-event-type.pipe';
 import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
