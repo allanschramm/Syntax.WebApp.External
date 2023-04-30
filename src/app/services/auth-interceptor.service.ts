@@ -24,6 +24,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         // Remover o token expirado do localstorage
         this.authService.logout();
         // Redirecionar o usuário para a página de login
+        this.authService.removeToken();
         window.location.href = '/login';
         return throwError('Token expirado');
       }
