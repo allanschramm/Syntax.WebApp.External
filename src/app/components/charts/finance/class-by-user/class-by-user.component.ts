@@ -3,23 +3,10 @@ import { Chart } from 'chart.js';
 import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
-interface TypeQuantity {
-  type: number;
-  quantity: number;
-  balance: number;
-}
-
-interface typePercentages {
-  percentage: string;
-  type: string;
-}
-
 interface DataType {
-  totalBalance: number;
   transactionClass: string;
-  totalQuantity: number;
-  typePercentages: typePercentages[];
-  typeQuantity: TypeQuantity[];
+  classBalance: number;
+  classPercentage: number;
 }
 
 @Component({
@@ -40,13 +27,13 @@ export class ClassByUserComponent implements OnInit {
         label: 'Balance',
         data: [],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
+          'rgba(255, 99, 132)',
+          'rgba(255, 159, 64)',
+          'rgba(255, 205, 86)',
+          'rgba(75, 192, 192)',
+          'rgba(54, 162, 235)',
+          'rgba(153, 102, 255)',
+          'rgba(201, 203, 207)'
         ],
         borderColor: [
           'rgb(255, 99, 132)',
@@ -69,6 +56,16 @@ export class ClassByUserComponent implements OnInit {
           y: {
             beginAtZero: true
           }
+        },
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Expenses By Class'
+          }
         }
       },
     };
@@ -78,7 +75,7 @@ export class ClassByUserComponent implements OnInit {
     this.syntaxService.getTransactionByClassByUser(this.authService.getUserId())
     .subscribe(apiData => {
       const labels = apiData.map((item: DataType) => item.transactionClass);
-      const data = apiData.map((item: DataType) => Math.abs(item.typeQuantity[0]?.balance) || 0);
+      const data = apiData.map((item: DataType) => Math.abs(item.classBalance));
   
       this.chart.data.labels = labels;
       this.chart.data.datasets[0].data = data;
@@ -88,6 +85,6 @@ export class ClassByUserComponent implements OnInit {
   }
 
   createChart() {
-    this.chart = new Chart("MyChart", this.config);
+    this.chart = new Chart("ExpenseByClass", this.config);
   }
 }
