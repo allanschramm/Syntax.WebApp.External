@@ -40,10 +40,10 @@ export class ClassByUserComponent implements OnInit {
         label: 'Expenses',
         data: [],
         backgroundColor: [
-          'rgba(255, 99, 132)',
+          'rgba(233, 102, 102)',
         ],
         borderColor: [
-          'rgb(255, 99, 132)',
+          'rgb(255, 30, 30)',
         ],
         borderWidth: 1
       },
@@ -51,10 +51,10 @@ export class ClassByUserComponent implements OnInit {
         label: 'Revenue',
         data: [],
         backgroundColor: [
-          'rgba(255, 205, 86)',
+          'rgba(74, 158, 231)',
         ],
         borderColor: [
-          'rgb(255, 205, 86)',
+          'rgb(30, 100, 255)',
         ],
         borderWidth: 1
       }]
