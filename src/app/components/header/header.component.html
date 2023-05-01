@@ -10,52 +10,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" (click)="setActive('home')" [ngClass]="{'active': activeItem === 'home'}"
-                        routerLink="/home">
+                    <a class="nav-link" (click)="setActive('home')" [ngClass]="{'active': activeItem === 'home'}" routerLink="/home/dashboard">
                         <i class="material-icons">home</i>
-                        Home
+                        Dashboard
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" [ngClass]="{'active': activeItem === 'finances'}">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="setActive('finances')" [ngClass]="{'active': activeItem === 'finances'}" routerLink="/finances/transaction">
                         <i class="material-icons">payments</i>
                         Finances
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li>
-                            <a class="dropdown-item" (click)="setActive('finances')" routerLink="/finances/dashboard">
-                                <i class="material-icons"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" (click)="setActive('finances')" routerLink="/finances/transaction">
-                                <i class="material-icons"></i>
-                                Transactions
-                            </a>
-                    </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" [ngClass]="{'active': activeItem === 'portfolio'}">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="setActive('portfolio')" [ngClass]="{'active': activeItem === 'portfolio'}" routerLink="/portfolio/transaction">
                         <i class="material-icons">savings</i>
                         Investments
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li>
-                            <a class="dropdown-item" (click)="setActive('portfolio')" routerLink="/portfolio/dashboard">
-                                <i class="material-icons"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" (click)="setActive('portfolio')"
-                                routerLink="/portfolio/transaction">
-                                <i class="material-icons"></i>
-                                Transactions
-                            </a>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">
