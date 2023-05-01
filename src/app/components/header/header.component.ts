@@ -10,6 +10,7 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 export class HeaderComponent implements OnInit {
   balance!: number;
   netWorth!: number;
+  userName!: string;
 
   constructor(private authService: AuthService, private syntaxService: SyntaxService) {}
   
@@ -20,6 +21,10 @@ export class HeaderComponent implements OnInit {
 
     this.syntaxService.getUserNetWorth(this.authService.getUserId()).subscribe((netWorth => {
       this.netWorth = netWorth;
+    }));
+
+    this.authService.getUserById(this.authService.getUserId()).subscribe((user => {
+      this.userName = user.name;
     }));
   }
 
