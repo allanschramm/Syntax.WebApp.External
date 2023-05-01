@@ -1,41 +1,43 @@
-<h1>Asset List</h1>
+<div class="container-lg">
+  <h1 style="font-size: 2em">Asset List</h1>
 
-<table class="table table-bordered table-striped table-hover">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Asset</th>
-      <th>Asset Class</th>
-      <th>Quantity</th>
-      <th>Order Price</th>
-      <th>Operation Type</th>
-      <th>Date</th>
-      <th>Portfolio</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngIf="assetPortfolioList$ | async as assetPortfolioList">
-      <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
-        <td>{{ assetPortfolio.id }}</td>
-        <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetName(assetPortfolio.idAsset) }}</td>
-        <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetClassName(assetPortfolio.idAsset) }}</td>
-        <td>{{ assetPortfolio.quantity }}</td>
-        <td>{{ assetPortfolio.purchasePrice }}</td>
-        <td>{{ assetPortfolio.type | portfolioEventType }}</td>
-        <td>{{ assetPortfolio.date | date }}</td>
-        <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getPortfolioName(assetPortfolio.idPortfolio) }}</td>
-        <td>
-          <a routerLink="/portfolio/edit/{{assetPortfolio.id}}">
-            <i class="material-icons">edit_note</i>
-          </a>
-          <a routerLink="/portfolio/delete/{{assetPortfolio.id}}">
-            <i class="material-icons delete">delete</i>
-          </a>
-        </td>
+  <table class="table table-bordered table-striped table-hover" style="font-size: 1.2em">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Asset</th>
+        <th>Asset Class</th>
+        <th>Quantity</th>
+        <th>Order Price</th>
+        <th>Operation Type</th>
+        <th>Date</th>
+        <th>Portfolio</th>
+        <th>Actions</th>
       </tr>
-    </ng-container>
-  </tbody>
-</table>
-
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="assetPortfolioList$ | async as assetPortfolioList">
+        <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 15, currentPage: p }">
+          <td>{{ assetPortfolio.id }}</td>
+          <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetName(assetPortfolio.idAsset) }}</td>
+          <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetClassName(assetPortfolio.idAsset) }}</td>
+          <td>{{ assetPortfolio.quantity }}</td>
+          <td>{{ assetPortfolio.purchasePrice }}</td>
+          <td>{{ assetPortfolio.type | portfolioEventType }}</td>
+          <td>{{ assetPortfolio.date | date }}</td>
+          <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getPortfolioName(assetPortfolio.idPortfolio) }}</td>
+          <td>
+            <a routerLink="/portfolio/edit/{{assetPortfolio.id}}">
+              <i class="material-icons">edit_note</i>
+            </a>
+            <a routerLink="/portfolio/delete/{{assetPortfolio.id}}">
+              <i class="material-icons delete">delete</i>
+            </a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  
+  <pagination-controls (pageChange)="p = $event" style="font-size: 1.2em"></pagination-controls>
+</div>
