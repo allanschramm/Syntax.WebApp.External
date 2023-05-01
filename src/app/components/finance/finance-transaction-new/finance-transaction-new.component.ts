@@ -83,7 +83,7 @@ export class FinanceTransactionNewComponent implements OnInit {
     );
   }
 
-  voltar() : void {
+  back() : void {
     this.router.navigate(['/finances/transaction'])
   }
   

@@ -2,8 +2,5 @@
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
-}
-
-.sidebar {    
-    border-right: 1px solid darkgray;
+    width: 100vw;
 }

@@ -1,17 +1,25 @@
-<h1>Wallets</h1>
+<div class="container-lg">
+  <div class="card mx-auto my-5 p-4">
+    <div class="card-body">
+      <h1 style="font-size: 2em">Wallets</h1>
 
-<table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let wallet of portfolioList$ | async">
-      <td>{{ wallet.name }}</td>
-      <td>{{ wallet.description }}</td>
-    </tr>
-  </tbody>
-</table>
+      <table class="table table-bordered table-striped table-hover" style="font-size: 1.2em">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="portfolioList$ | async as portfolioList">
+            <tr *ngFor="let wallet of portfolioList | paginate: { itemsPerPage: 15, currentPage: p }">
+              <td>{{ wallet.name }}</td>
+              <td>{{ wallet.description }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" style="font-size: 1.2em"></pagination-controls>
+    </div>
+  </div>
+</div>

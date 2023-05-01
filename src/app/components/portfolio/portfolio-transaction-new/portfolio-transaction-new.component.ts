@@ -100,7 +100,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
       );
   }  
 
-  voltar() : void {
+  back() : void {
     this.router.navigate(['/portfolio/transaction']);
   }
 

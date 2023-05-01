@@ -1,12 +1,23 @@
-<form [formGroup]="portfolioForm" (ngSubmit)="onSubmit()">
-  <div class="form-group mb-3">
-    <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" formControlName="name">
+<div class="container">
+  <div class="card mx-auto my-5 p-4">
+    <h1 class="text-center display-4">New</h1>
+    <form [formGroup]="portfolioForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="description" class="form-label">Description:</label>
+        <input type="text" class="form-control" id="description" formControlName="description">
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <button type="button" class="btn btn-secondary" (click)="back()">Back</button>
+        </div>
+        <div class="col-auto ml-auto">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description" formControlName="description">
-  </div>
-  <button type="button" class="btn btn-secondary" (click)="voltar()">Back</button>
-  <button type="submit" class="btn btn-primary">Create</button>
-</form>
+</div>

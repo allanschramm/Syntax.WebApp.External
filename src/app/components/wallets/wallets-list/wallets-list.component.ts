@@ -10,6 +10,7 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 })
 export class WalletsListComponent implements OnInit {
   portfolioList$!: Observable<Portfolio[]>;
+  p: number = 1;
     
   constructor(private portfolioService: SyntaxService) { }
 

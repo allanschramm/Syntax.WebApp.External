@@ -1,35 +1,45 @@
-<h1>Asset List</h1>
-
-<table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Asset</th>
-      <th>Quantity</th>
-      <th>Order Price</th>
-      <th>Operation Type</th>
-      <th>Date</th>
-      <th>Portfolio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngIf="assetPortfolio">
-      <td>{{ assetPortfolio.id }}</td>
-      <td>{{ assetPortfolio.idAsset }}</td>
-      <td>{{ assetPortfolio.quantity }}</td>
-      <td>{{ assetPortfolio.purchasePrice }}</td>
-      <td>{{ assetPortfolio.type }}</td>
-      <td>{{ assetPortfolio.date | date }}</td>
-      <td>{{ assetPortfolio.idPortfolio }}</td>
-    </tr>
-  </tbody>
-</table>
-
-<div style="margin-bottom: 5px;">
-  <button type="button" class="btn btn-secondary" (click)="back()">
-      Back
-  </button> 
-  <button type="button" class="btn btn-danger" (click)="remove()">
-      Remove
-  </button>           
+<div class="container">
+  <div class="card mx-auto my-5 p-4">
+    <div class="card-body">
+      <h1 class="card-title">Transaction Details</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-lg" style="font-size: 1.2em">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Asset</th>
+              <th>Quantity</th>
+              <th>Order Price</th>
+              <th>Operation Type</th>
+              <th>Date</th>
+              <th>Portfolio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="assetPortfolio">
+              <td>{{ assetPortfolio.id }}</td>
+              <td>{{ assetPortfolio.idAsset }}</td>
+              <td>{{ assetPortfolio.quantity }}</td>
+              <td>{{ assetPortfolio.purchasePrice }}</td>
+              <td>{{ assetPortfolio.type }}</td>
+              <td>{{ assetPortfolio.date | date }}</td>
+              <td>{{ assetPortfolio.idPortfolio }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <button type="button" class="btn btn-secondary btn-lg" (click)="back()">
+            Back
+          </button>
+        </div>
+        <div class="col-auto ml-auto">
+          <button type="button" class="btn btn-danger btn-lg" (click)="remove()">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

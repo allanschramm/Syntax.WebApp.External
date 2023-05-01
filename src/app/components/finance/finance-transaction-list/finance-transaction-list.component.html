@@ -1,39 +1,43 @@
 <div class="container-lg">
-  <h1 style="font-size: 2em">All Transactions</h1>
+  <div class="card mx-auto my-5 p-4">
+    <div class="card-body">
+      <h1 style="font-size: 2em">Transaction List</h1>
 
-  <table class="table table-bordered table-striped table-hover" style="font-size: 1.2em">
-    <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th>Value</th>
-        <th>Description</th>
-        <th>Date</th>
-        <th>Type</th>
-        <th>Class</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngIf="transactionList$ | async as transactionList">
-        <tr *ngFor="let transaction of transactionList | paginate: { itemsPerPage: 15, currentPage: p }">
-          <td>{{ transaction.id }}</td>
-          <td>{{ transaction.value }}</td>
-          <td>{{ transaction.description }}</td>
-          <td>{{ transaction.date | date }}</td>
-          <td>{{ transaction.type | financeEventType }}</td>
-          <td *ngIf="transactionClassList$ && transactionClassList$.length > 0">{{ getCategoryName(transaction.idTransactionClass) }}</td>
-          <td>
-            <a routerLink="/finances/edit/{{transaction.id}}">
-              <i class="material-icons">edit_note</i>
-            </a>
-            <a routerLink="/finances/delete/{{transaction.id}}">
-              <i class="material-icons delete">delete</i>
-            </a>
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  
-  <pagination-controls (pageChange)="p = $event" style="font-size: 1.2em"></pagination-controls>
+      <table class="table table-bordered table-striped table-hover table-lg" style="font-size: 1.2em">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Value</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Class</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="transactionList$ | async as transactionList">
+            <tr *ngFor="let transaction of transactionList | paginate: { itemsPerPage: 10, currentPage: p }">
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.value }}</td>
+              <td>{{ transaction.description }}</td>
+              <td>{{ transaction.date | date }}</td>
+              <td>{{ transaction.type | financeEventType }}</td>
+              <td *ngIf="transactionClassList$ && transactionClassList$.length > 0">{{
+                getCategoryName(transaction.idTransactionClass) }}</td>
+              <td>
+                <a routerLink="/finances/edit/{{transaction.id}}">
+                  <i class="material-icons">edit_note</i>
+                </a>
+                <a routerLink="/finances/delete/{{transaction.id}}">
+                  <i class="material-icons delete">delete</i>
+                </a>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" style="font-size: 1.2em"></pagination-controls>
+    </div>
+  </div>
 </div>

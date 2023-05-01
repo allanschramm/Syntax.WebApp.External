@@ -51,7 +51,7 @@ export class WalletsNewComponent {
     )
   }
 
-  voltar() : void {
+  back() : void {
     this.router.navigate(['/wallets/wallet'])
   }
 }
