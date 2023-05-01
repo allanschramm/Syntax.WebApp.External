@@ -19,7 +19,7 @@
         </thead>
         <tbody>
           <ng-container *ngIf="assetPortfolioList$ | async as assetPortfolioList">
-            <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 15, currentPage: p }">
+            <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
               <td>{{ assetPortfolio.id }}</td>
               <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetName(assetPortfolio.idAsset) }}</td>
               <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetClassName(assetPortfolio.idAsset) }}
@@ -30,7 +30,7 @@
               <td>{{ assetPortfolio.date | date }}</td>
               <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getPortfolioName(assetPortfolio.idPortfolio) }}
               </td>
-              <td>
+              <td class="text-center">
                 <a routerLink="/portfolio/edit/{{assetPortfolio.id}}">
                   <i class="material-icons">edit_note</i>
                 </a>
