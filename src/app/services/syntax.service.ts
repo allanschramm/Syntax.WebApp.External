@@ -31,6 +31,10 @@ export class SyntaxService {
     return this.http.get<any>(`${this.baseUrl}/Dashboard/TransactionByClassUser/${id}`)
   }
 
+  getIncomePercentageByClassByUser(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/IncomePercentageByClassUser/${id}`)
+  }
+  
   getPortfolioEvolutionsByUser(id: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/Dashboard/PortfolioEvolutionByUser/${id}`)
   }

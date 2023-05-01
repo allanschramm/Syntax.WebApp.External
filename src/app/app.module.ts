@@ -67,6 +67,7 @@ import { ClassByUserPercentageComponent } from './components/charts/finance/clas
 import { AssetsByClassComponent } from './components/charts/portfolio/assets-by-class/assets-by-class.component';
 import { AssetsByPortfolioComponent } from './components/charts/portfolio/assets-by-portfolio/assets-by-portfolio.component';
 import { PortfolioEvolutionComponent } from './components/charts/portfolio/portfolio-evolution/portfolio-evolution.component';
+import { IncomeByClassComponent } from './components/charts/finance/income-by-class/income-by-class.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { PortfolioEvolutionComponent } from './components/charts/portfolio/portf
     AssetsByClassComponent,
     AssetsByPortfolioComponent,
     PortfolioEvolutionComponent,
+    IncomeByClassComponent,
   ],
   imports: [
     BrowserModule,
