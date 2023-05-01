@@ -28,7 +28,7 @@ export class PortfolioTransactionListComponent implements OnInit {
     combineLatest([
       this.syntaxService.getAssetList(),
       this.syntaxService.getAssetClassList(),
-      this.syntaxService.getPortfolioList()
+      this.syntaxService.getPortfolioList(this.authService.getUserId())
     ]).pipe(
       switchMap(([assetList, assetClassList, portfolioList]) => {
         this.assetList$ = assetList;  

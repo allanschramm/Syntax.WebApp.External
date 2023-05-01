@@ -72,7 +72,7 @@ export class PortfolioTransactionEditComponent implements OnInit {
       }
     );
 
-    this.syntaxService.getPortfolioList().subscribe(
+    this.syntaxService.getPortfolioList(this.authService.getUserId()).subscribe(
       (portfolios: Portfolio[]) => {
         this.portfolioList = portfolios;
       },

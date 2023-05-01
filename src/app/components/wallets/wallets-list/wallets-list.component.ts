@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Portfolio } from 'src/app/models/portfolio';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { SyntaxService } from 'src/app/services/syntax.service';
 })
 export class WalletsListComponent implements OnInit {
   portfolioList$!: Observable<Portfolio[]>;
+
   p: number = 1;
     
-  constructor(private portfolioService: SyntaxService) { }
+  constructor(private syntaxService: SyntaxService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.portfolioList$ = this.portfolioService.getPortfolioList();
+    this.portfolioList$ = this.syntaxService.getPortfolioList(this.authService.getUserId());
   }
 }

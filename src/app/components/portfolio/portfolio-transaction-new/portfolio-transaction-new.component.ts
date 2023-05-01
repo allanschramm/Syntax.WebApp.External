@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Asset } from 'src/app/models/asset';
 import { AssetPortfolio } from 'src/app/models/asset-portfolio';
 import { Portfolio } from 'src/app/models/portfolio';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 enum EventTypeAssetPortfolio {
@@ -38,7 +39,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
   portfolioList: Portfolio[] = []; // Array para armazenar as carteiras vindas da API
 
   
-  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private syntaxService: SyntaxService, private authService: AuthService, private router: Router) {}
   
   ngOnInit(): void {
     this.assetPortfolioForm = this.formBuilder.group({
@@ -60,7 +61,7 @@ export class PortfolioTransactionNewComponent implements OnInit {
       }
     );
 
-    this.syntaxService.getPortfolioList().subscribe(
+    this.syntaxService.getPortfolioList(this.authService.getUserId()).subscribe(
       (portfolios: Portfolio[]) => {
         this.portfolioList = portfolios;
       },

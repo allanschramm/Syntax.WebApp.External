@@ -116,8 +116,8 @@ export class SyntaxService {
   }
 
   // Métodos para Portfolio
-  getPortfolioList(): Observable<Portfolio[]> {
-    return this.http.get<Portfolio[]>(`${this.baseUrl}/Portfolio`);
+  getPortfolioList(id: string): Observable<Portfolio[]> {
+    return this.http.get<Portfolio[]>(`${this.baseUrl}/Portfolio/user/${id}`);
   }
 
   getPortfolio(id: number): Observable<Portfolio> {
