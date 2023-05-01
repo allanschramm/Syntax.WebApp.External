@@ -47,7 +47,7 @@ export class PortfolioEvolutionComponent implements OnInit {
         responsive: true,
         plugins: {
           title: {
-            display: true,
+            display: false,
             text: 'New Worth Growth',
           }
         }

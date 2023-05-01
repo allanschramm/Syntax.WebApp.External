@@ -34,13 +34,13 @@ export class IncomeByClassComponent {
           label: 'Percentage',
           data: [],
           backgroundColor: [
-            'rgba(255, 99, 132)',
-            'rgba(255, 159, 64)',
-            'rgba(255, 205, 86)',
-            'rgba(75, 192, 192)',
-            'rgba(54, 162, 235)',
+            'rgba(201, 203, 207)',
             'rgba(153, 102, 255)',
-            'rgba(201, 203, 207)'
+            'rgba(54, 162, 235)',
+            'rgba(75, 192, 192)',
+            'rgba(255, 205, 86)',
+            'rgba(255, 159, 64)',
+            'rgba(255, 99, 132)',
           ],
         }
       ]
@@ -56,8 +56,8 @@ export class IncomeByClassComponent {
             position: 'top',
           },
           title: {
-            display: true,
-            text: 'Expenses Percentage'
+            display: false,
+            text: 'Income By Class'
           }
         }
       },

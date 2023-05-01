@@ -55,8 +55,8 @@ export class ClassByUserPercentageComponent implements OnInit {
             position: 'top',
           },
           title: {
-            display: true,
-            text: 'Expenses Percentage'
+            display: false,
+            text: 'Expenses By Class'
           }
         }
       },
@@ -64,7 +64,7 @@ export class ClassByUserPercentageComponent implements OnInit {
 
     this.createChart();
 
-    this.syntaxService.getTransactionByClassByUser(this.authService.getUserId())
+    this.syntaxService.getExpensePercentageByClassByUser(this.authService.getUserId())
       .subscribe(apiData => {
         const labels = apiData.map((item: DataType) => item.transactionClass);
         const data = apiData.map((item: DataType) => item.classPercentage);

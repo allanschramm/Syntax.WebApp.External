@@ -54,7 +54,7 @@ export class AssetsByClassComponent implements OnInit {
             position: 'top',
           },
           title: {
-            display: true,
+            display: false,
             text: 'Assets By Class'
           }
         }

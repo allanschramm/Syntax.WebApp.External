@@ -18,7 +18,7 @@ export class SyntaxService {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
-  // Métodos para Dashboard
+  // Métodos para Saldo e Patrimonio
   getUserBalanceCurrentMonth(id: string): Observable<number> { 
     return this.http.get<any>(`${this.baseUrl}/Dashboard/UserBalanceCurrentMonth/${id}`)
   }
@@ -27,8 +27,13 @@ export class SyntaxService {
     return this.http.get<any>(`${this.baseUrl}/Dashboard/UserNetWorth/${id}`)
   }
 
-  getTransactionByClassByUser(id: string): Observable<any> { 
-    return this.http.get<any>(`${this.baseUrl}/Dashboard/TransactionByClassUser/${id}`)
+  // Métodos para Dashboard
+  getUserBalanceLastThreeMonths(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/UserBalanceLastThreeMonths/${id}`)
+  }
+  
+  getExpensePercentageByClassByUser(id: string): Observable<any> { 
+    return this.http.get<any>(`${this.baseUrl}/Dashboard/ExpensePercentageByClassUser/${id}`)
   }
 
   getIncomePercentageByClassByUser(id: string): Observable<any> { 

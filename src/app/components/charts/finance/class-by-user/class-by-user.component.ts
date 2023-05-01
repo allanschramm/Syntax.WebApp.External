@@ -3,10 +3,23 @@ import { Chart } from 'chart.js/auto';
 import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
+interface ChartData {
+  labels: string[],
+  datasets: ChartDataset[]
+}
+
+interface ChartDataset {
+  label: string,
+  data: number[],
+  backgroundColor: string[],
+  borderColor: string[],
+  borderWidth: number
+}
+
 interface DataType {
-  transactionClass: string;
-  classBalance: number;
-  classPercentage: number;
+  month: string,
+  expenses: number,
+  revenue: number
 }
 
 @Component({
@@ -19,30 +32,29 @@ export class ClassByUserComponent implements OnInit {
   config: any;
 
   constructor(private syntaxService: SyntaxService, private authService: AuthService) { }
-
+  
   ngOnInit(): void {
-    const chartData = {
+    const chartData: ChartData = {
       labels: [],
       datasets: [{
-        label: 'Balance',
+        label: 'Expenses',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132)',
-          'rgba(255, 159, 64)',
-          'rgba(255, 205, 86)',
-          'rgba(75, 192, 192)',
-          'rgba(54, 162, 235)',
-          'rgba(153, 102, 255)',
-          'rgba(201, 203, 207)'
         ],
         borderColor: [
           'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
+        ],
+        borderWidth: 1
+      },
+      {
+        label: 'Revenue',
+        data: [],
+        backgroundColor: [
+          'rgba(255, 205, 86)',
+        ],
+        borderColor: [
           'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)'
         ],
         borderWidth: 1
       }]
@@ -63,8 +75,8 @@ export class ClassByUserComponent implements OnInit {
             position: 'top',
           },
           title: {
-            display: true,
-            text: 'Expenses By Class'
+            display: false,
+            text: 'Last Three Months'
           }
         }
       },
@@ -72,18 +84,20 @@ export class ClassByUserComponent implements OnInit {
 
     this.createChart();
 
-    this.syntaxService.getTransactionByClassByUser(this.authService.getUserId())
-      .subscribe(apiData => {
-        const labels = apiData.map((item: DataType) => item.transactionClass);
-        const data = apiData.map((item: DataType) => Math.abs(item.classBalance));
+    this.syntaxService.getUserBalanceLastThreeMonths(this.authService.getUserId())
+      .subscribe((apiData: DataType[]) => {
+        const labels = apiData.map((item: DataType) => item.month);
+        const expenses = apiData.map((item: DataType) => item.expenses);
+        const revenue = apiData.map((item: DataType) => item.revenue);
 
         this.chart.data.labels = labels;
-        this.chart.data.datasets[0].data = data;
-        this.chart.data.datasets[0].label = "Balance";
+        this.chart.data.datasets[0].data = expenses;
+        this.chart.data.datasets[1].data = revenue;
+
         this.chart.update();
       });
   }
-
+  
   createChart() {
     this.chart = new Chart("ExpenseByClass", this.config);
   }
