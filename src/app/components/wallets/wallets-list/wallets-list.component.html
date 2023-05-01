@@ -8,13 +8,19 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <ng-container *ngIf="portfolioList$ | async as portfolioList">
-            <tr *ngFor="let wallet of portfolioList | paginate: { itemsPerPage: 15, currentPage: p }">
+            <tr *ngFor="let wallet of portfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
               <td>{{ wallet.name }}</td>
               <td>{{ wallet.description }}</td>
+              <td class="text-center">
+                <a routerLink="/wallets/edit/{{wallet.id}}">
+                  <i class="material-icons">edit_note</i>
+                </a>
+              </td>
             </tr>
           </ng-container>
         </tbody>

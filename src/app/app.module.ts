@@ -68,6 +68,7 @@ import { AssetsByClassComponent } from './components/charts/portfolio/assets-by-
 import { AssetsByPortfolioComponent } from './components/charts/portfolio/assets-by-portfolio/assets-by-portfolio.component';
 import { PortfolioEvolutionComponent } from './components/charts/portfolio/portfolio-evolution/portfolio-evolution.component';
 import { IncomeByClassComponent } from './components/charts/finance/income-by-class/income-by-class.component';
+import { WalletsEditComponent } from './components/wallets/wallets-edit/wallets-edit.component';
 
 
 @NgModule({
@@ -111,6 +112,7 @@ import { IncomeByClassComponent } from './components/charts/finance/income-by-cl
     AssetsByPortfolioComponent,
     PortfolioEvolutionComponent,
     IncomeByClassComponent,
+    WalletsEditComponent,
   ],
   imports: [
     BrowserModule,

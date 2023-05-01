@@ -22,6 +22,7 @@ import { FinanceTransactionEditComponent } from './components/finance/finance-tr
 import { FinanceTransactionDeleteComponent } from './components/finance/finance-transaction-delete/finance-transaction-delete.component';
 import { PortfolioTransactionEditComponent } from './components/portfolio/portfolio-transaction-edit/portfolio-transaction-edit.component';
 import { PortfolioTransactionDeleteComponent } from './components/portfolio/portfolio-transaction-delete/portfolio-transaction-delete.component';
+import { WalletsEditComponent } from './components/wallets/wallets-edit/wallets-edit.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent},
@@ -42,7 +43,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'wallet', pathMatch: 'full' },
       { path: 'wallet', component: WalletComponent },
-      { path: 'new', component: WalletsNewComponent }
+      { path: 'new', component: WalletsNewComponent },
+      { path: 'edit/:id', component: WalletsEditComponent }
     ]
   },
   {
@@ -57,8 +59,7 @@ const routes: Routes = [
     path: 'finances',
     component: FinanceComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: FinanceDashboardComponent },
+      { path: '', redirectTo: 'transaction', pathMatch: 'full' },
       { path: 'transaction', component: FinanceTransactionComponent },
       { path: 'new', component: FinanceTransactionNewComponent },
       { path: 'edit/:id', component: FinanceTransactionEditComponent },
@@ -69,8 +70,7 @@ const routes: Routes = [
     path: 'portfolio',
     component: PortfolioComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: PortfolioDashboardComponent },
+      { path: '', redirectTo: 'transaction', pathMatch: 'full' },
       { path: 'transaction', component: PortfolioTransactionComponent },
       { path: 'new', component: PortfolioTransactionNewComponent },
       { path: 'edit/:id', component: PortfolioTransactionEditComponent },
