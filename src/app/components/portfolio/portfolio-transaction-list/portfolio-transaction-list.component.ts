@@ -5,6 +5,7 @@ import { Asset } from 'src/app/models/asset';
 import { AssetClass } from 'src/app/models/asset-class';
 import { AssetPortfolio } from 'src/app/models/asset-portfolio';
 import { Portfolio } from 'src/app/models/portfolio';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 @Component({
@@ -19,10 +20,10 @@ export class PortfolioTransactionListComponent implements OnInit {
   portfolioList$!: Portfolio[];
   p: number = 1;
   
-  constructor(private syntaxService: SyntaxService) { }
+  constructor(private syntaxService: SyntaxService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.assetPortfolioList$ = this.syntaxService.getAssetPortfolioList();
+    this.assetPortfolioList$ = this.syntaxService.getAssetPortfolioList(this.authService.getUserId());
   
     combineLatest([
       this.syntaxService.getAssetList(),

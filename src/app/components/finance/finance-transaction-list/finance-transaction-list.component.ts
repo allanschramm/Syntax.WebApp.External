@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionClass } from 'src/app/models/transaction-class';
+import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
 @Component({
@@ -14,10 +15,10 @@ export class FinanceTransactionListComponent implements OnInit {
   transactionClassList$!: TransactionClass[];
   p: number = 1;
 
-  constructor(private syntaxService: SyntaxService) { }
+  constructor(private syntaxService: SyntaxService, private authService: AuthService) { }
   
   ngOnInit(): void {
-    this.transactionList$ = this.syntaxService.getTransactionList();
+    this.transactionList$ = this.syntaxService.getTransactionList(this.authService.getUserId());
     
     this.syntaxService.getTransactionClassList().subscribe(transactionClassList => {
       this.transactionClassList$ = transactionClassList;

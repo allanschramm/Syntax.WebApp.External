@@ -95,8 +95,8 @@ export class SyntaxService {
   }
 
   // Métodos para AssetPortfolio
-  getAssetPortfolioList(): Observable<AssetPortfolio[]> {
-    return this.http.get<AssetPortfolio[]>(`${this.baseUrl}/AssetPortfolio`);
+  getAssetPortfolioList(id: string): Observable<AssetPortfolio[]> {
+    return this.http.get<AssetPortfolio[]>(`${this.baseUrl}/AssetPortfolio/user/${id}`);
   }
 
   getAssetPortfolio(id: number): Observable<AssetPortfolio> {
@@ -158,8 +158,8 @@ export class SyntaxService {
   }
   
   // Métodos para Transaction
-  getTransactionList(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(`${this.baseUrl}/Transaction`);
+  getTransactionList(id: string): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.baseUrl}/Transaction/user/${id}`);
   }
 
   getTransaction(id: number): Observable<Transaction> {
