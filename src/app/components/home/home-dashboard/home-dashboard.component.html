@@ -1,10 +1,58 @@
-<div>
-    <app-class-by-user></app-class-by-user>
-
-    <app-class-by-user-percentage></app-class-by-user-percentage>
-</div>
-<div>
-    <app-portfolio-evolution></app-portfolio-evolution>
-    <app-assets-by-class></app-assets-by-class>
-    <app-assets-by-portfolio></app-assets-by-portfolio>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center my-4">Finances</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Expense By Class</h5>
+                    <app-class-by-user></app-class-by-user>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Expense By Class Percentage</h5>                            
+                            <app-class-by-user-percentage></app-class-by-user-percentage>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Income By Class Percentage</h5>
+                            <app-income-by-class></app-income-by-class>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center my-4">Portfolio</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Portfolio Evolution</h5>
+                    <app-portfolio-evolution></app-portfolio-evolution>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Assets by Class</h5>
+                            <app-assets-by-class></app-assets-by-class>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Assets by Portfolio</h5>
+                            <app-assets-by-portfolio></app-assets-by-portfolio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
