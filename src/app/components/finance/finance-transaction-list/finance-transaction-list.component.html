@@ -20,7 +20,7 @@
         <td>{{ transaction.description }}</td>
         <td>{{ transaction.date | date }}</td>
         <td>{{ transaction.type | financeEventType }}</td>
-        <td>{{ getCategoryName(transaction.idTransactionClass) }}</td>
+        <td *ngIf="transactionClassList$ && transactionClassList$.length > 0">{{ getCategoryName(transaction.idTransactionClass) }}</td>
         <td>
           <a routerLink="/finances/edit/{{transaction.id}}">
             <i class="material-icons">edit_note</i>

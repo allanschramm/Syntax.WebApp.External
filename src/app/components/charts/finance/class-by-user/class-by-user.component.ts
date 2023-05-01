@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart } from 'chart.js/auto';
 import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
@@ -73,15 +73,15 @@ export class ClassByUserComponent implements OnInit {
     this.createChart();
 
     this.syntaxService.getTransactionByClassByUser(this.authService.getUserId())
-    .subscribe(apiData => {
-      const labels = apiData.map((item: DataType) => item.transactionClass);
-      const data = apiData.map((item: DataType) => Math.abs(item.classBalance));
-  
-      this.chart.data.labels = labels;
-      this.chart.data.datasets[0].data = data;
-      this.chart.data.datasets[0].label = "Balance";
-      this.chart.update();
-    });
+      .subscribe(apiData => {
+        const labels = apiData.map((item: DataType) => item.transactionClass);
+        const data = apiData.map((item: DataType) => Math.abs(item.classBalance));
+
+        this.chart.data.labels = labels;
+        this.chart.data.datasets[0].data = data;
+        this.chart.data.datasets[0].label = "Balance";
+        this.chart.update();
+      });
   }
 
   createChart() {

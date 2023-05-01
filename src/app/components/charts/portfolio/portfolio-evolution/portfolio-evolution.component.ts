@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart } from 'chart.js/auto';
 import { AuthService } from 'src/app/services/auth.service';
 import { SyntaxService } from 'src/app/services/syntax.service';
 
@@ -20,6 +20,11 @@ export class PortfolioEvolutionComponent implements OnInit {
   constructor(private syntaxService: SyntaxService, private authService: AuthService) { }
   
   ngOnInit(): void {
+    if (this.chart) {
+      this.chart.clear();
+      this.chart.destroy();
+    }
+    
     const data = {
       labels: [],
       datasets: [

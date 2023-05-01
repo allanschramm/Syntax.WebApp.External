@@ -68,13 +68,15 @@
                 <li class="nav-item">
                     <a class="nav-link text-white disabled">
                         <i class="material-icons">account_balance_wallet</i>
-                        Monthly Balance: 0,00
+                        Monthly Balance: 
+                        <span *ngIf="balance !== undefined">{{balance.toFixed(2)}}</span>
                     </a>
-                </li>
+                </li>                
                 <li class="nav-item">
                     <a class="nav-link text-white disabled">
                         <i class="material-icons">paid</i>
-                        Net Worth: 0,00
+                        Net Worth: 
+                        <span *ngIf="netWorth !== undefined">{{netWorth.toFixed(2)}}</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
