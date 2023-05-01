@@ -18,8 +18,8 @@
     <ng-container *ngIf="assetPortfolioList$ | async as assetPortfolioList">
       <tr *ngFor="let assetPortfolio of assetPortfolioList | paginate: { itemsPerPage: 10, currentPage: p }">
         <td>{{ assetPortfolio.id }}</td>
-        <td *ngIf="assetList$ && assetList$.length > 0">{{ getAssetName(assetPortfolio.idAsset) }}</td>
-        <td *ngIf="assetList$ && assetList$.length > 0">{{ getAssetClassName(assetPortfolio.idAsset) }}</td>
+        <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetName(assetPortfolio.idAsset) }}</td>
+        <td *ngIf="portfolioList$ && portfolioList$.length > 0">{{ getAssetClassName(assetPortfolio.idAsset) }}</td>
         <td>{{ assetPortfolio.quantity }}</td>
         <td>{{ assetPortfolio.purchasePrice }}</td>
         <td>{{ assetPortfolio.type | portfolioEventType }}</td>

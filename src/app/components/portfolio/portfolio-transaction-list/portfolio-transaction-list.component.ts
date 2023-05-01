@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Asset } from 'src/app/models/asset';
 import { AssetClass } from 'src/app/models/asset-class';
 import { AssetPortfolio } from 'src/app/models/asset-portfolio';
@@ -22,18 +23,19 @@ export class PortfolioTransactionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.assetPortfolioList$ = this.syntaxService.getAssetPortfolioList();
-
-    this.syntaxService.getAssetList().subscribe(assetList => {
-      this.assetList$ = assetList;  
-    });
-
-    this.syntaxService.getAssetClassList().subscribe(assetClassList => {
-      this.assetClassList$ = assetClassList;  
-    });
-
-    this.syntaxService.getPortfolioList().subscribe(portfolioList => {
-      this.portfolioList$ = portfolioList;
-    });
+  
+    combineLatest([
+      this.syntaxService.getAssetList(),
+      this.syntaxService.getAssetClassList(),
+      this.syntaxService.getPortfolioList()
+    ]).pipe(
+      switchMap(([assetList, assetClassList, portfolioList]) => {
+        this.assetList$ = assetList;  
+        this.assetClassList$ = assetClassList;  
+        this.portfolioList$ = portfolioList;
+        return of(null);
+      })
+    ).subscribe();
   }
 
   getAssetName(idAsset: number): string {
